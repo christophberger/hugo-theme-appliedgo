@@ -1,4 +1,4 @@
-<section id="main">
+<main role="main" class="main">
     {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
     {{ range $paginator.Pages }}
 	{{ if (not (eq .Title ""))}} <!-- Suppress non-post html files, like Hype animations. -->
@@ -33,5 +33,5 @@
     {{ end }}
 
     {{ partial "pagination" . }}
-</section>
+</main>
 <!-- // main section -->
