@@ -16,12 +16,12 @@
             {{ end }}
         </div>
         <header class="archive-article-header">
-            <h1 itemprop="name">
+            <h1>
             <a class="archive-article-title" href="{{ .Permalink }}">{{ .Title }}</a>
             </h1>
             <div class="archive-article-date">
                 <i class="fa fa-calendar"></i>
-                <time datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format .Site.Params.dateFormat }}</time>
+                <time datetime="{{ .Date }}">{{ .Date.Format .Site.Params.dateFormat }}</time>
             </div>
         </header>
     </div>
