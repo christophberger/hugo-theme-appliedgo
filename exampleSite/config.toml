@@ -70,7 +70,7 @@ pygmentsstyle = "trac"
     hideReadingTime = false
 
 	# Date format.
-	date_format = "2016-01-02"
+	dateFormat = "2016-01-02"
 
     # Set background and link/accent colours.
     colourTheme = "appliedgo-light"
