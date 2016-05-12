@@ -4,21 +4,86 @@
 
 html {
     font-family: 'Lato', 'Helvetica', sans-serif;
+	font-size: 13pt;
+	line-height: 1.3em;
+}
+
+body {
+	width: 100%;
+    margin: 0em;
+    padding: 0em;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Averia Libre', 'Lato', 'Helvetica', sans-serif;
 	text-decoration: none;
+	line-height: 1em;
+    text-align: left;
+    margin-top: 0em;
+    margin-right: 0em;
+    margin-bottom: 1em;
+    margin-left: 0em;
 }
 
 /*
  * Defaults
  */
 
+
 /*
- * Links
+ * Colours and style 
  */
 
+.appliedgo-light body {
+    color: #404040;
+    background-color: #f8f8f8;
+}
+
+.appliedgo-light .h1 {
+	color: #f4bf75;
+}
+
+
+.appliedgo-light #site-header, 
+.appliedgo-light .site-nav-item a {
+	color: white;
+	background-color: #f4bf75;
+}
+
+.appliedgo-light .site-nav-item a:hover {
+	background-color: white;
+	color: #f4bf75;
+}
+
+.appliedgo-light header h1 a {
+	color: white;
+	text-shadow: 0.05em 0.05em 0.1em #a07050;
+}
+
+.appliedgo-light .site-nav-item a {
+	color: white;
+}
+
+.appliedgo-light .subscribe-item a {
+	color: white;
+}
+
+.appliedgo-light #site-footer,
+.appliedgo-light #site-footer a {
+	background-color: #4b5a68;
+	color: white;
+}
+
+.appliedgo-light .article-read-more a {
+    background: #e5e8e9;
+    color: #999;
+}
+.appliedgo-light .article-read-more a:hover {
+	background-color: #f4bf75;
+    color: white;
+}
+
+/*Links */
 
 a {
 	text-decoration: none;
@@ -35,14 +100,18 @@ a:visited {
 	color: #f4bf75;
 }
 
+
 /* 
- * Adaptive layout 
+ * Layout 
  */
+
+/* Adaptive, device-first layout */
 
 /* Viewport: too small */
 
 @media only screen {
-	main, .main {
+	main,
+	.main {
 		width:100%;
 		max-width:100%;
 		padding: .5em;
@@ -68,12 +137,19 @@ a:visited {
 		max-width:100%;
 		padding: .5em;
 	}
+
+	#site-logo,
+	#site-title {
+		display: block;
+	}
+
 }
 
 /* Viewport: just about right */
 
 @media only screen and (min-width: 45em) {
-	main, .main {
+	main,
+	.main {
 		padding: 1em;
 	}
 
@@ -92,12 +168,18 @@ a:visited {
 		vertical-align: top;
 		width: auto;
 	}
+
+	#site-logo,
+	#site-title {
+		display: inline-block;
+	}
 }
 
 /* Viewport: too big */
 
 @media only screen and (min-width: 60em) {
-	main, .main {
+	main,
+	.main {
 		max-width: 60em;
 	}
 
@@ -126,43 +208,11 @@ a:visited {
 	display: inline-block;
 }
 
-/*
- * Colours and style 
+/* 
+ * Other layout
  */
 
-.appliedgo-light .h1 {
-	color: #f4bf75;
-}
-
 /* Header */
-
-.appliedgo-light #site-header, .appliedgo-light .site-nav-item a {
-	color: white;
-	background-color: #f4bf75;
-}
-
-.appliedgo-light .site-nav-item a:hover {
-	background-color: white;
-	color: #f4bf75;
-}
-
-.appliedgo-light header h1 a {
-	color: white;
-	text-shadow: 0.05em 0.05em 0.1em #a07050;
-}
-
-.appliedgo-light .site-nav-item a {
-	color: white;
-}
-
-.appliedgo-light .subscribe-item a {
-	color: white;
-}
-
-
-h1 a {
-	text-decoration: none;
-}
 
 #site-head {
 	min-width: 18em;
@@ -200,15 +250,10 @@ h1 a {
 
 .site-nav-item a {
 	padding: 0.2em;
-	text-decoration: none;
 }
 
 .subscribe-item {
 	display: inline-block;
-}
-
-.subscribe-item .fa {
-	font-size: 2em;
 }
 
 
@@ -240,66 +285,182 @@ img {
 	max-width: 100%;
 }
 
+
+/* List */
+
+.article-read-more a {
+    display: inline-block;
+    line-height: 1em;
+    padding: .3em .8em;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}
+
+
+/* Navigation */
+
+#article-nav {
+  position: relative;
+}
+#article-nav:before,
+#article-nav:after {
+  content: "";
+  display: table;
+}
+#article-nav:after {
+  clear: both;
+}
+@media screen and (min-width: 1200px) {
+  #article-nav {
+    margin: 40px 0;
+  }
+  #article-nav:before {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -4px;
+    margin-left: -4px;
+    content: "";
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #787c81;
+  }
+}
+.article-nav-link-wrap {
+  text-decoration: none;
+  color: #999;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 40px;
+  text-align: center;
+  display: block;
+}
+.article-nav-link-wrap:hover {
+  color: #565a5f;
+}
+@media screen and (min-width: 1200px) {
+  .article-nav-link-wrap {
+    width: 50%;
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #article-nav-newer {
+    float: left;
+    text-align: right;
+    padding-right: 20px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #article-nav-older {
+    float: right;
+    text-align: left;
+    padding-left: 20px;
+  }
+}
+.article-nav-caption {
+  letter-spacing: 2px;
+  line-height: 1em;
+  font-weight: bold;
+  color: #565a5f;
+  text-transform: uppercase;
+}
+#article-nav-newer .article-nav-caption {
+  margin-right: -2px;
+}
+.article-nav-title {
+  font-size: 0.85em;
+  line-height: 1.6em;
+  margin-top: 0.5em;
+}
+
+/* currently disabled - fetch more style rules from hugo-icarus-theme > style.css if enabling the comment link */
+.article-comment-link {
+	display: none;
+}
+
+/* currently disabled - fetch more style rules from hugo-icarus-theme > style.css if enabling the share popup box */
+.article-share-link {
+	display: none;
+}
+
+
 /* Footer */
 
-.site-footer {
-	display: block;
-	box-sizing: border-box;
-	width: 100%;
-	padding: 0.5em;
-	margin-top: 0.5em;
+
+@media only screen {
+	#site-footer {
+		display: block;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0.5em;
+		margin-top: 0.5em;
+	}
+
+	#site-footer .left {
+		display: block;
+		text-align: center;
+	}
+
+	#site-footer .center {
+		display: block;
+		text-align: center;
+	}
+
+	#site-footer .right {
+		display: block;
+		text-align: center;
+	}
 }
-@media only screen and (min-width 45) {
-	.site-footer {
+
+@media only screen and (min-width: 20) {
+	#site-footer {
 		display: table;
 		padding: 1em;
 	}
-}
-
-.appliedgo-light .site-footer, .appliedgo-light .site-footer a {
-	background-color: #4b5a68;
-	color: #fff;
-	text-decoration: none;
-}
-
-.site-footer .right .fa {
-	font-size: 2em;
-}
-
-
-/* Miscellaneous stylings */
-
-@media only screen {
-	.site-footer .left {
-		display: block;
-		text-align: center;
-	}
-
-	.site-footer .center {
-		display: block;
-		text-align: center;
-	}
-
-	.site-footer .right {
-		display: block;
-		text-align: center;
-	}
-}
-
-@media only screen and (min-width 45) {
-	.site-footer .left {
+	#site-footer .left {
 		display: table-cell;
 		text-align: left;
 	}
 
-	.site-footer .center {
+	#site-footer .center {
 		display: table-cell;
 		text-align: center;
 	}
 
-	.site-footer .right {
+	#site-footer .right {
 		display: table-cell;
 		text-align: right;
 	}
 }
 
+/*
+ * Print layout
+ */
+
+@media
+print {
+
+	body {
+		background-color: #fff;
+	}
+
+	.gotohugo .code {
+		background-color: #fff;
+	}
+
+	#site-header,
+	#site-footer {
+		display: none;
+	}
+
+	#site-header-print,
+	#site-footer-print {
+		display: block;
+	}
+
+	
+}

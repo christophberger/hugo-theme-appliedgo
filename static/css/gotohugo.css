@@ -5,24 +5,11 @@
  
  */
 
-html {
-	font-size: 14pt;
-}
-
-body {
-    background-color: #f8f8f8;
-    margin: 0em;
-    padding: 0em;
-    font-family: 'Lato', 'Helvetica', sans-serif;
-	font-size: 1rem;
-	line-height: 1.3em;
-}
 
 tt, code, kbd, samp {
     font-family: Menlo, Monaco, Consolas, "Lucida Console", monospace;
 	font-size: .85rem
 }
-
 
 
 .gotohugo p {
@@ -32,23 +19,17 @@ tt, code, kbd, samp {
     margin-left: 0em;
 }
 
-h1, h2, h3, h4, h5 {
-	font-family: 'Averia Libre', 'Lato', 'Helvetica', sans-serif;
-	line-height: 1em;
-    text-align: left;
-    margin-top: 0em;
-    margin-right: 0em;
-    margin-bottom: 1em;
-    margin-left: 0em;
-}
 
-.gotohugo .doc h1, .gotohugo .doc h2, .gotohugo .doc h3, .gotohugo .doc h4, .gotohugo .doc h5 {
+.gotohugo .doc h1,
+.gotohugo .doc h2,
+.gotohugo .doc h3,
+.gotohugo .doc h4,
+.gotohugo .doc h5 {
     margin-top: 1.6em;
 }
 
 .gotohugo .doc {
     vertical-align: top;
-    color: #404040;
 	font-size: 1rem;
     min-width: 20em;
     max-width: 30em;
@@ -73,8 +54,10 @@ h1, h2, h3, h4, h5 {
 	display: table-row;
 }
 
-.gotohugo .comment, .gotohugo .code {
+.gotohugo .comment,
+.gotohugo .code {
 	display: table-cell;
+	min-width: 20em;
 }
 
 .gotohugo .code pre {
@@ -83,6 +66,7 @@ h1, h2, h3, h4, h5 {
 
 .gotohugo .code {
 	width:auto;
+	max-width:100%;
     padding-left: 2em;
     padding-right: 1em;
 	margin-right: 0em;
@@ -111,9 +95,11 @@ only screen and (max-width: 60em) {
 		display: block; 
 	}
 
-	.gotohugo .comment, .gotohugo .code{
+	.gotohugo .comment,
+	.gotohugo .code{
 		display: block; 
 		padding: 1em 1em 1em;
+		min-width: 0em;
 	}
 
 	.gotohugo .doc {
@@ -138,7 +124,8 @@ only screen and (max-width: 45em) {
 		padding: 0em;
 	}
  
-	.gotohugo .comment, .gotohugo .code {
+	.gotohugo .comment,
+	.gotohugo .code {
 		padding: 0.5em .5em .5em;
 	}
 }
