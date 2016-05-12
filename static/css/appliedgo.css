@@ -317,6 +317,10 @@ a:visited {
 	padding: 1em;
 }
 
+.article-date {
+	display: inline;
+}
+
 
 .nohype {
 	display: block;
