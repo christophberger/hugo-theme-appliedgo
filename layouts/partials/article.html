@@ -1,5 +1,5 @@
 <main role="main" class="main">
-    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <article>
         <div class="article-inner">
             {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
                 {{if or (in (substr .Params.banner 0 7) "http://") (in (substr .Params.banner 0 8) "https://")}}
@@ -10,7 +10,7 @@
             {{ end }}
 
             {{ partial "article_header" . }}
-            <div class="article-entry" itemprop="articleBody">
+            <div class="article-entry">
                 {{ .Content }}
             </div>
             {{ partial "article_footer" . }}
