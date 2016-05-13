@@ -324,6 +324,10 @@ a:visited {
     max-width: 30em;
 }
 
+.article-date {
+	display: inline;
+}
+
 .nohype {
 	display: block;
 	width: auto;
