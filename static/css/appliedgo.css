@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
  * Colours and style 
  */
 
-.appliedgo-light body {
+body.appliedgo-light {
     color: #404040;
     background-color: #f8f8f8;
 }
