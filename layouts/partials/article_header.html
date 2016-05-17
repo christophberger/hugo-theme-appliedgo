@@ -5,24 +5,29 @@
     </h1>
     </a>
     <div class="article-meta">
-		{{ if isset .Params "categories" }}
-			{{ if (gt (len .Params.categories) 0) }}
-				{{ index .Params.categories 0 }}
-			{{ end }}
-			&middot;
-			{{ end }}
         <div class="article-date">
             <i class="fa fa-calendar"></i>
             <time datetime="{{ .Date }}" >{{ .Date.Format .Site.Params.dateFormat }}</time>
-        </div> &middot; {{ .ReadingTime }} minute read
-			{{ if isset .Params "domains" }}
+        </div>
+		&nbsp;&middot;&nbsp;
+		{{ if isset .Params "categories" }}
+			{{ if (gt (len .Params.categories) 0) }}
+					<a class="article-categories-link" href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}">{{ index .Params.categories 0 }}</a>
+			{{ end }}
+			&nbsp;&middot;&nbsp;
+		{{ end }}
+		{{ .ReadingTime }} minute read
+
+		{{ if isset .Params "domains" }}
             {{ $domainsLen := len .Params.domains }}
             {{ if gt $domainsLen 0 }}
-            <div class="article-category">
+				<div class="article-domain">
                 <i class="fa fa-folder"></i>
                 {{ range $k, $v := .Params.domains }}
-                <a class="article-category-link" href="{{ $.Site.BaseURL }}domains/{{ . | urlize | lower }}">{{ . }}</a>
-                {{ if lt $k (sub $domainsLen 1) }}&middot;{{ end }}
+					<a class="article-domain-link" href="{{ $.Site.BaseURL }}domains/{{ . | urlize | lower }}">{{ . }}</a>
+					{{ if lt $k (sub $domainsLen 1) }}
+						&nbsp;&middot;&nbsp;
+					{{ end }}
                 {{ end }}
             </div>
             {{ end }}
@@ -31,11 +36,13 @@
         {{ if isset .Params "tags" }}
             {{ $tagsLen := len .Params.tags }}
             {{ if gt $tagsLen 0 }}
-            <div class="article-category">
+				<div class="article-tags">
                 <i class="fa fa-tags"></i>
                 {{ range $k, $v := .Params.tags }}
-                <a class="article-category-link" href="{{ $.Site.BaseURL }}tags/{{ . | urlize | lower }}">{{ . }}</a>
-                {{ if lt $k (sub $tagsLen 1) }}&middot;{{ end }}
+					<a class="article-tags-link" href="{{ $.Site.BaseURL }}tags/{{ . | urlize | lower }}">{{ . }}</a>
+					{{ if lt $k (sub $tagsLen 1) }}
+						&nbsp;&middot;&nbsp;
+					{{ end }}
                 {{ end }}
             </div>
             {{ end }}
