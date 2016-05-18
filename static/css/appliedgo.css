@@ -189,6 +189,13 @@ a:visited {
 		width: 4em;
 		height: 3em;
 	}
+
+	blockquote {
+		font-style: italic;
+	}
+	blockquote::before {
+		content: "<i class='fa fa-quote-left' aria-hidden='true'></i>";
+	}
 }
 
 /* Viewport: just about right */
@@ -320,10 +327,16 @@ a:visited {
 
 #site-nav {
   padding: 0.5em;
+  margin: auto;
 }
 
 .site-nav-item a {
 	padding: 0.2em;
+}
+
+#subscribe {
+	margin: 0 auto 0 auto;
+	width: auto;
 }
 
 .subscribe-item {
@@ -337,8 +350,6 @@ a:visited {
 	max-width: 33em;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
 }
 
 .article-title {
@@ -502,10 +513,14 @@ img {
 	}
 
 	#site-footer .left::after {
-		content = "CC BY-NC-SA"
+		content = " (CC BY-NC-SA)";
 	}
 
 	#site-footer .center, #site-footer .right {
 		display:none;
+	}
+
+	#article-nav {
+		display: none;
 	}
 }

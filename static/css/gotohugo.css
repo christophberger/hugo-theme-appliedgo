@@ -41,7 +41,12 @@ tt, code, pre, kbd, samp {
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
-	margin-bottom: 1.6em;
+	/*margin-bottom: 1.6em;*/
+}
+
+.gotohugo .summary {
+	margin: 0em;
+	padding: 0em;
 }
 
 .gotohugo .source {
