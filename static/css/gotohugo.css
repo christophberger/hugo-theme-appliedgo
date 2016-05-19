@@ -19,6 +19,9 @@ tt, code, pre, kbd, samp {
     margin-left: 0em;
 }
 
+.gotohugo p:empty, .gotohugo br:empty { /* Hide auto-generated empty elements */
+	display: none;
+}
 
 .gotohugo .doc h1,
 .gotohugo .doc h2,
@@ -35,7 +38,6 @@ tt, code, pre, kbd, samp {
     max-width: 33em;
 	width:auto;
     padding-top: 0em;
-    padding-right: 1em;
     padding-left: 0em;
     overflow-x: visible;
 	display: block;
@@ -45,8 +47,8 @@ tt, code, pre, kbd, samp {
 }
 
 .gotohugo .summary {
-	margin: 0em;
-	padding: 0em;
+	margin: 0em auto 0em auto;
+	padding: 0em 0em 0em 0em;
 }
 
 .gotohugo .source {
@@ -63,6 +65,11 @@ tt, code, pre, kbd, samp {
 .gotohugo .code {
 	display: table-cell;
 	min-width: 20em;
+	padding-bottom: 0.8em;
+}
+
+.gotohugo .comment {
+	padding-right: 1em;
 }
 
 .gotohugo .code pre {

@@ -194,7 +194,15 @@ a:visited {
 		font-style: italic;
 	}
 	blockquote::before {
-		content: "<i class='fa fa-quote-left' aria-hidden='true'></i>";
+		/* Does not work :-(  content: "<i class='fa fa-quote-left' aria-hidden='true'></i>"; */
+		background-color: red;
+		width: 1em;
+	}
+
+	.page article {
+		max-width: 33em;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
