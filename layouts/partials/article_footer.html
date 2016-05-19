@@ -3,10 +3,8 @@
         Share
     </a>
     {{ if (and (isset .Site.Params "disqusShortname") (not (eq .Site.Params.DisqusShortname ""))) }}
-		<a href="{{ .Permalink }}/#disqus_thread" class="article-comment-link">
-			Comments
-		</a>
-		{{ template "_internal/disqus.html" . }}
-	
+    <a href="{{ .Permalink }}/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
     {{end}}
 </footer>
