@@ -112,7 +112,6 @@ a:visited {
 @media screen, print {
 	main,
 	.main {
-		width:100%;
 		max-width:100%;
 		padding: .5em;
 		min-height: 100px;
@@ -190,15 +189,6 @@ a:visited {
 		height: 3em;
 	}
 
-	blockquote {
-		font-style: italic;
-	}
-	blockquote::before {
-		/* Does not work :-(  content: "<i class='fa fa-quote-left' aria-hidden='true'></i>"; */
-		background-color: red;
-		width: 1em;
-	}
-
 	.page {
 		margin-left: auto;
 		margin-right: auto;
@@ -271,8 +261,7 @@ a:visited {
 /* Viewport: too big */
 
 @media screen and (min-width: 60em) {
-	main,
-	.main {
+	.doc {
 		max-width: 60em;
 	}
 
@@ -379,6 +368,10 @@ a:visited {
 	display: inline;
 }
 
+.post .gotohugo .summary {
+	font-weight: bold;
+}
+
 .nohype {
 	display: block;
 	width: auto;
@@ -390,6 +383,19 @@ a:visited {
 
 img {
 	max-width: 100%;
+}
+
+blockquote {
+	font-style: italic;
+}
+
+blockquote:before {
+  content: '„';
+  font-size: 5em;
+  font-weight: bold;
+  display: block;
+  left: -0.4em;
+  position: relative;
 }
 
 
