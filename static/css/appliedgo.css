@@ -107,7 +107,7 @@ a:visited {
 
 /* Adaptive, device-first layout */
 
-/* Viewport: too small */
+/* Viewport: mobile device, or "too small" */
 
 @media screen, print {
 	main,
@@ -502,7 +502,7 @@ blockquote:before {
 
 
 /*
- * Print layout
+ * Print style
  */
 
 @media print {
