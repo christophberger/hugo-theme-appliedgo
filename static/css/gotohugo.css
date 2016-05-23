@@ -20,8 +20,11 @@ tt, code, pre, kbd, samp {
     margin-left: 0em;
 }
 
-.gotohugo p:empty, .gotohugo br:empty { /* Hide auto-generated empty elements */
+.gotohugo p:empty, .gotohugo br:empty { /* Hide auto-generated empty elements... */
 	display: none;
+}
+.gotohugo .HYPE_element_container p:empty, .gotohugo .HYPE_element_container br:empty { /* ...but not those within a HYPE container. */
+	display: inline;
 }
 
 .gotohugo .doc h1,
