@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-decoration: none;
 	line-height: 1em;
     text-align: left;
-    margin-top: 0em;
+    margin-top: 1em;
     margin-right: 0em;
     margin-bottom: 1em;
     margin-left: 0em;
@@ -396,6 +396,7 @@ blockquote:before {
   display: block;
   left: -0.4em;
   position: relative;
+  margin-top: -0.3em;
 }
 
 
