@@ -7,4 +7,12 @@
         Comments
     </a>
     {{end}}
+    {{ if (and (isset .Site.Params "discussOnReddit") (not (eq .Site.Params.DiscussOnReddit ""))) }}
+	<br>
+	<hr>
+	<br>
+	<section id="discussOnReddit">
+		<p>Sorry, there is no comments function here at the moment.</p><p>I invite you to head over to Reddit and discuss this blog post, or anything else about applying Go to real-world problems, on the <a href="http://reddit.com/r/appliedgo" target="_blank">/r/appliedgo</a> subreddit. Feel free to create a new thread over there if you do not find one for this post. (It makes no sense if I created a new thread for every post unless there is something to talk about.)</p><p>Love to see your feedback!</p>
+	</section>
+    {{end}}
 </footer>
