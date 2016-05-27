@@ -105,6 +105,17 @@ only screen and (max-width: 60em) {
 		border: none;
 	}
 
+	.gotohugo .source::before {
+		content: "Tip: Use a wide screen to view comments and code side-by-side.";
+		display: block;
+		text-align: center;
+		font-size: 0.8em;
+		font-style: italic;
+		padding: 0.5em;
+		margin: 0 auto 0 auto;
+		background: #f0f0f0;
+	}
+
 	.gotohugo .ccpair { 
 		display: block; 
 	}
