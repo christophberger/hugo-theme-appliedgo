@@ -94,6 +94,11 @@ tt, code, pre, kbd, samp {
     color: #404040;
 }
 
+.doc .code {
+	background: white;
+	padding: 0.5em;
+}
+
 
 /* Narrow viewports */
 @media 
