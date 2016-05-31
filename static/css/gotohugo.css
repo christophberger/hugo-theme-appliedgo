@@ -94,8 +94,8 @@ tt, code, pre, kbd, samp {
     color: #404040;
 }
 
-.doc code {
-	background: white;
+.doc pre {
+	background-color: white;
 	padding: 0.5em;
 }
 
