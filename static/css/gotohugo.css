@@ -58,6 +58,8 @@ tt, code, pre, kbd, samp {
 .gotohugo .source {
 	display: table;
 	padding-left: 1em;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .gotohugo .ccpair {
@@ -73,6 +75,7 @@ tt, code, pre, kbd, samp {
 
 .gotohugo .comment {
 	padding-right: 1em;
+	max-width: 33em;
 }
 
 .gotohugo .code pre {
