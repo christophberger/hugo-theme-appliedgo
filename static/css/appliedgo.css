@@ -210,6 +210,10 @@ a:visited {
 		max-width: 5em;
 		margin: 0.5em;
 	}
+
+	.article-list p:empty, .article-list br:empty {
+		display: none;
+	}
 }
 
 /* Viewport: just about right */
