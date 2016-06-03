@@ -214,6 +214,17 @@ a:visited {
 	.article-list p:empty, .article-list br:empty {
 		display: none;
 	}
+
+	.footnotes {
+		max-width: 33em;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.footnotes ol li {
+		font-size: 0.9em;
+	}
+
 }
 
 /* Viewport: just about right */
