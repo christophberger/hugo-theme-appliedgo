@@ -102,6 +102,12 @@ tt, code, pre, kbd, samp {
 	padding: 0.5em;
 }
 
+.gotohugo img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 
 /* Narrow viewports */
 @media 
