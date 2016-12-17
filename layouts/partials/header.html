@@ -20,7 +20,7 @@
 
 		<div id="subscribe" class="cell right">Subscribe:
 			<div class="subscribe-item">
-				{{ if .Site.Params.email }}<a href="/subscribe" title="Get updates by email"><i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+				{{ if .Site.Params.email }}<a href="/subscribe" title="Get updates by email"><i class="fa fa-envelope-square fa-2x" aria-hidden="true" style="color:#88dd44"></i></a>{{ end }}
 				{{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="Subscribe to the RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>{{ end }}
 				{{ if .Site.Params.feedly }}<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttps%3A%2F%2Fappliedgo.net%2Findex.xml' target='_blank'><img id='feedlyFollow' src='/img/feedly-follow-logo-white_2x.png' title='Follow me in Feedly' width='36' height='36' align=top></a>{{ end }}
 				{{ with .Site.Params.twitter }}<a href="{{ . }}" title="Follow me on Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>{{ end }}
