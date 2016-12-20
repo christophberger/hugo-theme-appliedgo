@@ -1,0 +1,8 @@
+{{ if isset .Site.Params "announcement" }}
+	<div class="announcement doc">
+		<div width=auto style="margin: 1em 0em 1em 0em; padding: 0.5em 0.5em 0.5em 0.5em; color:{{ index (index .Site.Data.panels.announcements .Site.Params.announcement) "fg" }};background-color:{{ index (index .Site.Data.panels.announcements .Site.Params.announcement) "bg" }}">
+			<i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
+			{{ index (index .Site.Data.panels.announcements .Site.Params.announcement) "text" | markdownify }}
+		</div>
+	</div>
+{{ end }}
