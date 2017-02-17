@@ -9,6 +9,7 @@
 	</div>	
 	<div class="right">
 		{{ with .Site.Params.github }}<a href="{{ . }}" title="The code of the blog posts" target="_blank"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+		{{ with .Site.Params.socialtwitter }}<a href="{{ . }}" title="Christoph on Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>{{ end }}
 		{{ with .Site.Params.bitbucket }}<a href="{{ . }}" target="_blank"><i class="fa fa-bitbucket-square fa-2x" aria-hidden="true"></i></a>{{ end }}
 		{{ with .Site.Params.googleplus }}<a href="{{ . }}" target="_blank"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i></a>{{ end }}
 		{{ with .Site.Params.facebook }}<a href="{{ . }}" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>{{ end }}
