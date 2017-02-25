@@ -124,9 +124,24 @@ a:visited {
 
 /* Footers */
 
+#joinMailingList {
+	border: 1pt solid #404040;
+	background-color: #FFF;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#joinMailingList i {
+	float:left; 
+	padding: 0.5em 0.5em 0.5em 0.5em; 
+}
+#joinMailingList .joinMailingListText {
+	padding: 0 0.5em 0 0.5em; 
+}
+
 #discussOnReddit {
 	font-style: italic;
 }
+
 
 /* 
  * Layout 
@@ -220,7 +235,7 @@ a:visited {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.page article, #discussOnReddit {
+	.page article, #joinMailingList, #discussOnReddit {
 		max-width: 33em;
 		margin-left: auto;
 		margin-right: auto;

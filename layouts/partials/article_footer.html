@@ -1,21 +1,31 @@
 <footer class="article-footer">
+
+    <section id="joinMailingList">
+
+		<i class="fa fa-envelope fa-2x" aria-hidden="true" ></i>
+
+		<div class="joinMailingListText" >
+            <p>Do you enjoy these articles? <a href="/subscribe">Join my mailing list</a> and stay informed about new posts!</p>
+		</div>
+
+    </section>
+
     <a data-url="{{ .Permalink }}" data-id="{{ .UniqueID }}" class="article-share-link">
         Share
     </a>
+
     {{ if (and (isset .Site "disqusShortname") (not (eq .Site.DisqusShortname ""))) }}
-    <a href="{{ .Permalink }}/#disqus_thread" class="article-comment-link">
-        Comments
-    </a>
+        <a href="{{ .Permalink }}/#disqus_thread" class="article-comment-link">
+            Comments
+        </a>
     {{end}}
+
     {{ if (and (isset .Site.Params "discussOnReddit") (not (eq .Site.Params.DiscussOnReddit ""))) }}
-	<br>
-	<hr>
-	<br>
-    <section id="joinMailingList">
-        <p>Do you enjoy these articles? [Join my mailing list](/subscribe) and stay informed about new posts!</p>
-    </section>
-	<section id="discussOnReddit">
-		<p>Sorry, there is no comments function here at the moment.</p><p>I invite you to head over to Reddit and discuss this blog post, or anything else about applying Go to real-world problems, on the <a href="http://reddit.com/r/appliedgo" target="_blank">/r/appliedgo</a> subreddit. Feel free to create a new thread over there if you do not find one for this post. (It makes no sense if I created a new thread for every post unless there is something to talk about.)</p><p>Love to see your feedback!</p>
-	</section>
+        <br>
+        <hr>
+        <br>
+        <section id="discussOnReddit">
+            <p>Sorry, there is no comments function here at the moment.</p><p>I invite you to head over to Reddit and discuss this blog post, or anything else about applying Go to real-world problems, on the <a href="http://reddit.com/r/appliedgo" target="_blank">/r/appliedgo</a> subreddit. Feel free to create a new thread over there if you do not find one for this post. (It makes no sense if I created a new thread for every post unless there is something to talk about.)</p><p>Love to see your feedback!</p>
+        </section>
     {{end}}
 </footer>
