@@ -34,7 +34,7 @@
   <meta name="keywords" content="{{ .Site.Params.basicKeywords }}{{ if ne .Site.Params.basicKeywords "" }},{{ end }}{{ range $index, $element := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ $element }}{{ else }}{{ if eq .Site.Params.basicKeywords "" }}{{ .Site.Params.defaultKeywords }}{{ end }}{{ end }}">
 
   <!-- open graph -->
-	<meta property="og:title" content="{{ if ne .URL "/" }} {{ .Title }} - {{ end }} {{ .Site.Title }}" />
+	<meta property="og:title" content="{{ if ne .URL "/" }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
 	<meta property="og:description" content="{{ .Params.description }}" />
 	<meta property="og:site_name" content="{{ .Site.Title }}" />
 	<meta property="og:url" content="{{ .Permalink }}" />
