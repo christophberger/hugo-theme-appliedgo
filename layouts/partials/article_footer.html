@@ -1,5 +1,7 @@
 <footer class="article-footer">
 
+	<!-- Mailing List -->
+
     <section id="joinMailingList">
 
 		<i class="fa fa-envelope fa-2x" aria-hidden="true" ></i>
@@ -13,6 +15,15 @@
     <a data-url="{{ .Permalink }}" data-id="{{ .UniqueID }}" class="article-share-link">
         Share
     </a>
+
+	<!-- Share Buttons -->
+
+	<div class="agshare_bottom">
+		<div class="agshare_text">Like this article? Tell your friends!</div>
+		{{ partial "share_buttons.html" . }}
+	</div>
+
+	<!-- Comments -->
 
     {{ if (and (isset .Site "disqusShortname") (not (eq .Site.DisqusShortname ""))) }}
         <a href="{{ .Permalink }}/#disqus_thread" class="article-comment-link">
