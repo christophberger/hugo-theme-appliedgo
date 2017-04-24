@@ -1,12 +1,12 @@
 <footer id="site-footer">
 	<div class="left">
-		<a href="{{ "/licenses/" | absURL }}">&copy; {{ .Now.Format "2006" }} {{ .Site.Author.name }}</a>
-	</div>	
+		<a href="{{ "/licenses/" | absURL }}">&copy; {{ now.Format "2006" }} {{ .Site.Author.name }}</a>
+	</div>
 	<div class="center">
 		<a href="{{ "/imprint/" | absURL }}">Imprint/Impressum</a>
 		&nbsp;&middot;&nbsp;
 		<a href="{{ "/privacy/" | absURL }}">Privacy/Datenschutz</a>
-	</div>	
+	</div>
 	<div class="right">
 		{{ with .Site.Params.github }}<a href="{{ . }}" title="The code of the blog posts" target="_blank"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>{{ end }}
 		{{ with .Site.Params.socialtwitter }}<a href="{{ . }}" title="Christoph on Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>{{ end }}
