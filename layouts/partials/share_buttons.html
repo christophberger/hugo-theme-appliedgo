@@ -1,8 +1,19 @@
 <!-- Non-invasive social media share buttons -->
 
-	<!-- Facebook - https://developers.facebook.com/docs/sharing/webmasters -->
 
 <div class="agshare_buttons">
+
+	<!-- Facebook - https://developers.facebook.com/docs/sharing/webmasters -->
+
+	<a href="#" onclick="
+		window.open(
+			'https://www.facebook.com/sharer/sharer.php?u={{.Permalink}}%2F%3Fsrc%3Dfb',
+			'facebook-share-dialog',
+			'width=626,height=436');
+		return false;">
+		<i class="fa fa-facebook-square fa-2x" title="Share on Facebook" aria-hidden="true"></i>
+	</a>
+
 	<!-- a class="agshare_fb agshare_button" href="https://www.facebook.com/sharer/sharer.php?u={{.Permalink}}%2F%3Fsrc%3Dfb" target="_blank"><i class="fa fa-facebook-square fa-2x" title="Share on Facebook" aria-hidden="true"></i></a -->
 
 	<!-- i class="fa fa-facebook-square fa-2x" style="color: grey;" title="Sharing on Facebook currently not possible" aria-hidden="true"></i -->
