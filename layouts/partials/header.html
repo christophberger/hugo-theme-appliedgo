@@ -1,12 +1,12 @@
 <header id="site-header" class="table">
 	<div class="row">
+		<div id="site-logo">
+			<img src={{ .Site.Params.logo }} alt="">
+		</div>
 		<div id="site-head" class="cell left">
-			<div id="site-logo">
-				<img src={{ .Site.Params.logo }} alt="">
-			</div>
 			<div id="site-title">
 				<h1><a href="{{ "/" | absURL }}">{{ .Site.Title }}</a></h1>
-			  {{ with .Site.Params.tagline }}<p id="tagline">{{ . | markdownify }}</p>{{ end }}
+			  {{ with .Site.Params.tagline }}<div id="tagline">{{ . | markdownify }}</div>{{ end }}
 			</div>
 		</div>
 
@@ -18,7 +18,8 @@
 			</div>
 		</nav>
 
-		<div id="subscribe" class="cell right">Subscribe:
+		<div id="subscribe" class="cell right">
+			<div class="iconprefix">Subscribe:</div>
 			<div class="subscribe-item">
 				{{ if .Site.Params.email }}<a href="/subscribe" title="Get Applied Go updates by email"><i class="fa fa-envelope-square fa-2x" aria-hidden="true" style="color: #FFEBBD; text-shadow: 0 0 5px grey;"></i></a>{{ end }}
 				{{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="Subscribe to the Applied Go RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>{{ end }}

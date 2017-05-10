@@ -264,10 +264,25 @@ print {
         max-width: 100%;
         padding: .5em;
     }
+	#site-logo {
+		position:absolute;
+	}
     #site-logo,
     #site-title {
         display: block;
     }
+	#site-title h1{
+		text-align: center;
+	}
+	#site-head {
+		text-align: center;
+	}
+	#site-header {
+		padding: 0.5em;
+	}
+	#site-header .right {
+		text-align: center;
+	}
     #site-footer {
         display: block;
         box-sizing: border-box;
@@ -275,18 +290,16 @@ print {
         padding: 0.5em;
         margin-top: 0.5em;
     }
-    #site-footer .left {
+
+    #site-footer .cell {
         display: block;
         text-align: center;
+		vertical-align: middle;
     }
-    #site-footer .center {
-        display: block;
-        text-align: center;
-    }
-    #site-footer .right {
-        display: block;
-        text-align: center;
-    }
+	.iconprefix {
+		text-align: center;
+		margin-bottom: 0.5em;
+	}
     #site-url {
         display: none;
     }
@@ -356,34 +369,45 @@ print {
     }
     .cell {
         display: table-cell;
-        padding: 1em;
-        vertical-align: top;
+        padding: 0.5em;
+        vertical-align: middle;
         width: auto;
     }
+	#site-header .left {
+		width: 20%;
+	}
+	#site-header .center {
+		width: 60%;
+	}
+	#site-header .right {
+		width: 20%;
+	}
+	#site-logo {
+		position: relative;
+	}
     #site-logo,
     #site-title {
         display: inline-block;
     }
-    #site-header .right {
-        float: right;
-    }
+	#site-head {
+		text-align: left;
+	}
     .archives {
         margin-left: 1em;
     }
     #site-footer {
         display: table;
-        padding: 1em;
     }
+	#site-footer .cell {
+		display: table-cell;
+	}
     #site-footer .left {
-        display: table-cell;
         text-align: left;
     }
     #site-footer .center {
-        display: table-cell;
         text-align: center;
     }
     #site-footer .right {
-        display: table-cell;
         float: right;
         text-align: right;
     }
@@ -412,10 +436,8 @@ print {
 
 /* Liquid boxes */
 
-.liquid-box {}
-
 .liquid-cell {
-    display: inline-block;
+    display: inline-table;
 }
 
 
@@ -427,12 +449,10 @@ print {
 /* Header */
 
 #site-head {
-    min-width: 18em;
     padding: 0.5em;
 }
 
 #site-logo {
-    display: inline-block;
     margin: 0 auto 0.5rem auto;
     width: 4rem;
     height: 4rem;
@@ -459,6 +479,7 @@ print {
 #site-nav {
     padding: 0.5em;
     margin: auto;
+	text-align:center;
 }
 
 .site-nav-item a {
