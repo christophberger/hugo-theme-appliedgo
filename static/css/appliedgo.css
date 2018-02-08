@@ -323,7 +323,13 @@ print {
     .page {
         margin-left: auto;
         margin-right: auto;
-    }
+	}
+	#page-nav {
+		text-align: center;
+	}
+	#page-nav-separator {
+		color:#808080;
+	}
     .page article,
     #joinMailingList,
     #discussOnReddit {
