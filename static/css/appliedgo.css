@@ -689,7 +689,7 @@ blockquote:before {
         color: #404040;
     }
     #site-footer .left::after {
-        content=" (CC BY-NC-SA)";
+        content: " (CC BY-NC-SA)";
     }
     #site-footer .center,
     #site-footer .right {
