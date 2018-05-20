@@ -97,6 +97,7 @@
   _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
   _paq.push(["setCookieDomain", {{ .Site.Params.piwikCookieDomain }}]);
   _paq.push(["setDomains", [{{ .Site.Params.piwikDomains }}]]);
+  _paq.push(['disableCookies']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
