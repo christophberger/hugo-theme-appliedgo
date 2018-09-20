@@ -91,43 +91,13 @@
 {{ .Hugo.Generator }}
 
 
-<!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-<script>
-	(function(f, a, t, h, o, m){
-		a[h]=a[h]||function(){
-			(a[h].q=a[h].q||[]).push(arguments)
-		};
-		o=f.createElement('script'),
-		m=f.getElementsByTagName('script')[0];
-		o.async=1; o.src=t; o.id='fathom-script';
-		m.parentNode.insertBefore(o,m)
-	})(document, window, '//fathom.christophberger.com/tracker.js', 'fathom');
-	fathom('trackPageview');
-	</script>
-<!-- / Fathom -->
+<!-- Matomo -->
+<script src="http://matomo.christophberger.com/whatscookin/piwik.js" async defer></script>
+<script src="http://matomo.christophberger.com/whatscookin/tracking.js"></script>
+<script src="http://matomo.christophberger.com/piwik.js" async defer></script>
+<script src="http://matomo.christophberger.com/tracking.js"></script>
+<!-- Matomo End -->
 
-
-<!-- Piwik -->
-{{ if isset .Site.Params "piwik" }}
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-  _paq.push(["setCookieDomain", {{ .Site.Params.piwikCookieDomain }}]);
-  _paq.push(["setDomains", [{{ .Site.Params.piwikDomains }}]]);
-  _paq.push(['disableCookies']);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u={{ .Site.Params.piwikURL }};
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="{{ .Site.Params.piwikURL }}/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-{{ end  }}
-<!-- End Piwik Code -->
 
 
 </head>
