@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/appliedgo.css">
   <link rel="stylesheet" href="/css/gotohugo.css">
-  {{ if isset .Site.Params "highlight" }}<link rel="stylesheet" href="{{ "/css/highlight/" | absURL }}{{ .Site.Params.highlight }}.css">{{ end }}
+  {{ if isset .Site.Params "highlight" }}<link rel="stylesheet" href="/css/highlight/{{ .Site.Params.highlight }}.css">{{ end }}
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Averia+Libre&subset=latin' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet" type="text/css">
@@ -92,10 +92,8 @@
 
 
 <!-- Matomo -->
-<script src="http://matomo.christophberger.com/whatscookin/tracking.js"></script>
-<script src="http://matomo.christophberger.com/whatscookin/piwik.js" async defer></script>
-<script src="http://matomo.christophberger.com/tracking.js"></script>
-<script src="http://matomo.christophberger.com/piwik.js" async defer></script>
+<script src="https://matomo.christophberger.com/tracking.js"></script>
+<script src="https://matomo.christophberger.com/piwik.js" async defer></script>
 <!-- Matomo End -->
 
 
