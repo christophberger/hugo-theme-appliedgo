@@ -6,26 +6,23 @@
     </a>
     <div class="article-meta">
         <div class="article-date">
-            <i class="fa fa-calendar"></i>
+            <i class="far fa-calendar-alt"></i>
             <time datetime="{{ .Date }}" >{{ .Date.Format .Site.Params.dateFormat }}</time>
         </div>
-		&nbsp;&middot;&nbsp;
-		{{ if isset .Params "categories" }}
-			{{ if (gt (len .Params.categories) 0) }}
-					<a class="article-categories-link" href="{{ $.Site.BaseURL }}/categories/{{ index .Params.categories 0 | urlize | lower }}">{{ index .Params.categories 0 }}</a>
-			{{ end }}
-			&nbsp;&middot;&nbsp;
-		{{ end }}
-		{{ .ReadingTime }} minute read
+        
+        <div class="article-reading-time">
+            <i class="far fa-book-open"></i>
+            {{ .ReadingTime }} minute read
+        </div>
 
-		{{ if isset .Params "domains" }}
-            {{ $domainsLen := len .Params.domains }}
-            {{ if gt $domainsLen 0 }}
+		{{ if isset .Params "categories" }}
+            {{ $categoriesLen := len .Params.categories }}
+            {{ if gt $categoriesLen 0 }}
 				<div class="article-domain">
-                <i class="fa fa-folder"></i>
-                {{ range $k, $v := .Params.domains }}
-					<a class="article-domain-link" href="{{ $.Site.BaseURL }}/domains/{{ . | urlize | lower }}">{{ . }}</a>
-					{{ if lt $k (sub $domainsLen 1) }}
+                <i class="far fa-folder-open"></i>
+                {{ range $k, $v := .Params.categories }}
+					<a class="article-category-link" href="{{ $.Site.BaseURL }}/categories/{{ . | urlize | lower }}">{{ . }}</a>
+					{{ if lt $k (sub $categoriesLen 1) }}
 						&nbsp;&middot;&nbsp;
 					{{ end }}
                 {{ end }}
@@ -37,7 +34,7 @@
             {{ $tagsLen := len .Params.tags }}
             {{ if gt $tagsLen 0 }}
 				<div class="article-tags">
-                <i class="fa fa-tags"></i>
+                <i class="far fa-tags"></i>
                 {{ range $k, $v := .Params.tags }}
 					<a class="article-tags-link" href="{{ $.Site.BaseURL }}/tags/{{ . | urlize | lower }}">{{ . }}</a>
 					{{ if lt $k (sub $tagsLen 1) }}

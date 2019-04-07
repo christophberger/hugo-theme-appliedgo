@@ -1,6 +1,6 @@
 <footer id="site-footer">
 	<div class="cell left">
-		<a href="{{ "/licenses/" | absURL }}">&copy; {{ now.Format "2006" }} {{ .Site.Author.name }}</a>
+		<a href="{{ "/licenses/" | absURL }}">&copy; 2016-{{ now.Format "2006" }} {{ .Site.Author.name }}</a>
 	</div>
 	<div class="cell center">
 		<a href="{{ "/imprint/" | absURL }}">Imprint</a>
@@ -11,14 +11,14 @@
 	</div>
 	<div class="cell right">
 		<div class="iconprefix">Find me on:</div>
-		<div id="findmeon">{{ with .Site.Params.github }}<a href="{{ . }}" title="The code of the blog posts" target="_blank"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>{{ end }}
-		{{ with .Site.Params.socialtwitter }}<a href="{{ . }}" title="Christoph on Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>{{ end }}
-		{{ with .Site.Params.bitbucket }}<a href="{{ . }}" target="_blank"><i class="fa fa-bitbucket-square fa-2x" aria-hidden="true"></i></a>{{ end }}
-		{{ with .Site.Params.googleplus }}<a href="{{ . }}" target="_blank"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i></a>{{ end }}
-		{{ with .Site.Params.facebook }}<a href="{{ . }}" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>{{ end }}
-		{{ with .Site.Params.stackOverflow }}<a href="{{ . }}" target="_blank"><i class="fa fa-stack-overflow fa-2x" aria-hidden="true"></i></a>{{ end }}
-		{{ with .Site.Params.linkedin }}<a href="{{ . }}" title="Christoph on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>{{ end }}
-		{{ with .Site.Params.youtube }}<a href="{{ . }}" title="Applied Go on YouTube" target="_blank"><i class="fa fa-youtube-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+		<div id="findmeon">{{ with .Site.Params.github }}<a href="{{ . }}" title="The code of the blog posts" target="_blank"><i class="fab fa-github-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+		{{ with .Site.Params.socialtwitter }}<a href="{{ . }}" title="Christoph on Twitter"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+		{{ with .Site.Params.bitbucket }}<a href="{{ . }}" target="_blank"><i class="fab fa-bitbucket-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+		{{ with .Site.Params.googleplus }}<a href="{{ . }}" target="_blank"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+		{{ with .Site.Params.facebook }}<a href="{{ . }}" target="_blank"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+		{{ with .Site.Params.stackOverflow }}<a href="{{ . }}" target="_blank"><i class="fab fa-stack-overflow fa-2x" aria-hidden="true"></i></a>{{ end }}
+		{{ with .Site.Params.linkedin }}<a href="{{ . }}" title="Christoph on LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a>{{ end }}
+		{{ with .Site.Params.youtube }}<a href="{{ . }}" title="Applied Go on YouTube" target="_blank"><i class="fab fa-youtube-square fa-2x" aria-hidden="true"></i></a>{{ end }}
 		</div>
 </div>
 </footer>
