@@ -15,7 +15,7 @@
 
 	<div class="announcement doc" >
 
-		<i class="fa {{ index (index .Site.Data.panels.announcements .Site.Params.announcement) "icon" }} fa-2x" aria-hidden="true" ></i>
+		<i class="fa{{ index (index .Site.Data.panels.announcements .Site.Params.announcement) "icon" }} fa-2x" aria-hidden="true" ></i>
 
 		<div class="announcement_text" >
 			{{ index (index .Site.Data.panels.announcements .Site.Params.announcement) "text" | markdownify }}
