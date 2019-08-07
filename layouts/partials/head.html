@@ -37,7 +37,7 @@
   <!-- The following Open Graph metadata setup is taken from: https://discuss.gohugo.io/t/hugo-seo-social-partials/353/45 -->
 
   <!-- open graph -->
-	<meta property="og:title" content="{{ if ne .URL "/" }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
+	<meta property="og:title" content="{{ if ne .RelPermalink "/" }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
 	<meta property="og:description" content="{{ .Params.description }}" />
 	<meta property="og:site_name" content="{{ .Site.Title }}" />
 	<meta property="og:url" content="{{ .Permalink }}" />
