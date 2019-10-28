@@ -19,7 +19,7 @@
 				</div>
 				<div class="liquid-box">
 					{{ range .Site.Menus.extern }}
-					<div class="site-nav-external liquid-cell">{{ .Pre }}&#8192;<a href="{{ .URL }}" target="_blank">{{ .Name }}</a>&#8192;<i class="far fa-external-link" aria-hidden="true"></i>&#8192;</div>
+					<div class="site-nav-external liquid-cell">{{ .Pre }}&#8192;<a href="{{ .URL }}" target="_blank">{{ .Name }}</a>&#8192;<i class="fad fa-external-link" aria-hidden="true"></i>&#8192;</div>
 					{{end}}
 				</div>
 			</nav>
@@ -29,7 +29,7 @@
 		<div id="subscribe" class="cell right">
 			<div class="iconprefix">Subscribe:</div>
 			<div class="subscribe-item">
-				{{ if .Site.Params.email }}<a href="/subscribewithvideos" title="Get Applied Go updates by email"><i class="far fa-envelope-square fa-2x" aria-hidden="true" style="color: #FFEBBD; text-shadow: 0 0 5px grey;"></i></a>{{ end }}
+				{{ if .Site.Params.email }}<a href="/subscribewithvideos" title="Get Applied Go updates by email"><i class="far fa-envelope-square fa-2x" aria-hidden="true"></i></a>{{ end }}
 				{{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="Subscribe to the Applied Go RSS feed"><i class="far fa-rss-square fa-2x"></i></a>{{ end }}
 				{{ if .Site.Params.feedly }}<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttps%3A%2F%2Fappliedgo.net%2Findex.xml' target='_blank'><img id='feedlyFollow' src='/img/feedly-follow-logo-white_2x.png' title='Follow Applied Go in Feedly' width='36' height='36' align=top></a>{{ end }}
 				{{ with .Site.Params.twitter }}<a href="{{ . }}" title="Follow Applied Go on Twitter"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i></a>{{ end }}

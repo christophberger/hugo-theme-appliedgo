@@ -6,12 +6,12 @@
     </a>
     <div class="article-meta">
         <div class="article-date">
-            <i class="far fa-calendar-alt"></i>
+            <i class="fad fa-calendar-alt"></i>
             <time datetime="{{ .Date }}" >{{ .Date.Format .Site.Params.dateFormat }}</time>
         </div>
         
         <div class="article-reading-time">
-            <i class="far fa-book-open"></i>
+            <i class="fad fa-book-open"></i>
             {{ .ReadingTime }} minute read
         </div>
 
@@ -19,7 +19,7 @@
             {{ $categoriesLen := len .Params.categories }}
             {{ if gt $categoriesLen 0 }}
 				<div class="article-domain">
-                <i class="far fa-folder-open"></i>
+                <i class="fad fa-folder-open"></i>
                 {{ range $k, $v := .Params.categories }}
 					<a class="article-category-link" href="{{ $.Site.BaseURL }}/categories/{{ . | urlize | lower }}">{{ . }}</a>
 					{{ if lt $k (sub $categoriesLen 1) }}
@@ -34,7 +34,7 @@
             {{ $tagsLen := len .Params.tags }}
             {{ if gt $tagsLen 0 }}
 				<div class="article-tags">
-                <i class="far fa-tags"></i>
+                <i class="fad fa-tags"></i>
                 {{ range $k, $v := .Params.tags }}
 					<a class="article-tags-link" href="{{ $.Site.BaseURL }}/tags/{{ . | urlize | lower }}">{{ . }}</a>
 					{{ if lt $k (sub $tagsLen 1) }}
