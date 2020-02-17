@@ -7,6 +7,16 @@
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+
+  <!-- Generate vanity import path if the frontmatter contains a vanity value -->
+  {{ if isset .Params "vanity" }}
+  {{ $url := urls.Parse .Permalink }}
+  {{ $import := path.Join $url.Host "/" $url.Path }}
+	<meta name="go-import" content="{{ $import }} git {{ .Params.vanity }}">
+    <meta name="go-source" content="{{ $import }} {{ .Params.vanity }} {{.Params.vanity}}/tree/master{/dir} {{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
+  {{ end }}
+
+
   <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
 
   <!-- CSS -->
@@ -31,9 +41,10 @@
 
   <!-- Meta -->
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+
   <meta name="keywords" content="{{ .Site.Params.basicKeywords }}{{ if ne .Site.Params.basicKeywords "" }},{{ end }}{{ range $index, $element := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ $element }}{{ else }}{{ if eq .Site.Params.basicKeywords "" }}{{ .Site.Params.defaultKeywords }}{{ end }}{{ end }}">
 
-
+  
   <!-- The following Open Graph metadata setup is taken from: https://discuss.gohugo.io/t/hugo-seo-social-partials/353/45 -->
 
   <!-- open graph -->
