@@ -5,8 +5,8 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   {{ $url := urls.Parse .Permalink }}
   {{ $import := path.Join $url.Host "/" $url.Path }}
-	<meta name="go-import" content="{{ $import }} git {{ .Params.vanity }}">
-  <meta name="go-source" content="{{ $import }} {{ .Params.vanity }} {{.Params.vanity}}/tree/master{/dir} {{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
+	<meta name="go-import" content="{{ $import }} git https://{{ .Params.vanity }}">
+  <meta name="go-source" content="{{ $import }} https://{{ .Params.vanity }} https://{{.Params.vanity}}/tree/master{/dir} https://{{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
   <meta http-equiv="refresh" content="0; url={{.Params.vanity}}">
 </head>
 </html>

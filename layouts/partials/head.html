@@ -12,8 +12,8 @@
   {{ if isset .Params "vanity" }}
   {{ $url := urls.Parse .Permalink }}
   {{ $import := path.Join $url.Host "/" $url.Path }}
-	<meta name="go-import" content="{{ $import }} git {{ .Params.vanity }}">
-    <meta name="go-source" content="{{ $import }} {{ .Params.vanity }} {{.Params.vanity}}/tree/master{/dir} {{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
+	<meta name="go-import" content="{{ $import }} git https://{{ .Params.vanity }}">
+    <meta name="go-source" content="{{ $import }} https://{{ .Params.vanity }} https://{{.Params.vanity}}/tree/master{/dir} https://{{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
   {{ end }}
 
 
