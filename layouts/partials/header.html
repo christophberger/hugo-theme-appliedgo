@@ -5,7 +5,7 @@
 		</div>
 		<div id="site-head" class="cell left">
 			<div id="site-title">
-				<h1><a href="{{ " /" | absURL }}">{{ .Site.Title }}</a></h1>
+				<h1><a href="{{ ref . "/" }}">{{ .Site.Title }}</a></h1>
 				{{ with .Site.Params.tagline }}<div id="tagline">{{ . | markdownify }}</div>{{ end }}
 			</div>
 		</div>
