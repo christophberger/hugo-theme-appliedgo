@@ -137,8 +137,8 @@ body.appliedgo-light {
 /*Links */
 
 a {
-    text-decoration: none;
-    color: #f4bf75;
+    text-decoration: underline;
+    background-color: #f4bf75;
 }
 
 a:hover {
