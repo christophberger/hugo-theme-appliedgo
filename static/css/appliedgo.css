@@ -207,6 +207,9 @@ body.appliedgo-light {
 
 /*Links */
 
+
+/* Based on "Spring Bounce Hover Effect" in https://uicookies.com/link-style-css/ (Codepen: https://codepen.io/markmead/pen/drORWG) */
+
 a {
   position: relative;
   overflow: hidden;
