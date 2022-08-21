@@ -27,10 +27,6 @@
 	<link rel="stylesheet" href="/css/gotohugo.css">
 	{{ if isset .Site.Params "highlight" }}
 	<link rel="stylesheet" href="/css/highlight/{{ .Site.Params.highlight }}.css">{{ end }}
-	<link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet'
-		type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Averia+Libre&subset=latin' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="/fonts/fontawesome/css/all.css">
 	{{ with .Site.Params.customCSS }}
 	<link rel="stylesheet" href="{{ . }}">{{ end }}
