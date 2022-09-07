@@ -107,26 +107,12 @@
 	{{ hugo.Generator }}
 
 
-	<!-- Matomo -->
-	<script type="text/javascript">
-		var _paq = window._paq = window._paq || [];
-		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-		_paq.push(["disableCookies"]);
-		_paq.push(['trackPageView']);
-		_paq.push(['enableLinkTracking']);
-		(function () {
-			var u = "//matomo.christophberger.com/";
-			_paq.push(['setTrackerUrl', u + 'matomo.php']);
-			_paq.push(['setSiteId', '1']);
-			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-			g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
-		})();
-	</script>
-	<noscript>
-		<p><img src="//matomo.christophberger.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p>
-	</noscript>
-	<!-- End Matomo Code -->
-
+	<!-- Pirsch -->
+	<script defer type="text/javascript" src="https://api.pirsch.io/pirsch.js"
+		id="pirschjs"
+		data-code="xqgDZYpPmnzroEgz6HkdVqby3M4K4Nj3"
+		data-dev></script>
+<!-- End Pirsch -->
 
 </head>
 <body{{ with .Site.Params.colourTheme }} class="{{ . }}" {{ end }}>
