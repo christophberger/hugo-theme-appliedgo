@@ -13,8 +13,13 @@
     </article>
 
     {{ if not .Params.disable_comments }}
-    <section id="comments">
-            {{ template "_internal/disqus.html" . }}
+        <script src="https://utteranc.es/client.js"
+            repo="AppliedGo/comments"
+            issue-term="pathname"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+        </script>
     </section>
     {{ end }}
 </main>
