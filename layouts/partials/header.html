@@ -38,7 +38,8 @@
 					href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttps%3A%2F%2Fappliedgo.net%2Findex.xml'
 					target='_blank'><img id='feedlyFollow' src='/img/feedly-follow-logo-white_2x.png'
 						title='Follow Applied Go in Feedly' width='36' height='36' align=top></a>{{ end }}
-				{{ with .Site.Params.mastodon }}<a href="{{ . }}" target="_blank" title="Follow Applied Go on Mastodon"><i
+				<!-- ensure to keep rel="me" for Mastodon verification -->
+				{{ with .Site.Params.mastodon }}<a rel="me" href="{{ . }}" target="_blank" title="Follow Applied Go on Mastodon"><i
 						class="fab fa-mastodon fa-2x" aria-hidden="true"></i></a>{{ end }}
 			</div>
 		</div>
