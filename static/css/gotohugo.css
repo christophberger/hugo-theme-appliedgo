@@ -16,6 +16,11 @@ samp {
 	line-height: 1.45;
 }
 
+pre {
+	/* If content exceeds height of container, overflow! */
+	overflow-x: auto;
+}
+
 .gotohugo p {
 	margin-top: 0.8em;
 	margin-right: 0em;
