@@ -377,7 +377,7 @@ print {
     }
 
     #site-header {
-        padding: 0.5em;
+        padding-top: 0.5em;
     }
 
     #site-header .right {
@@ -599,7 +599,7 @@ print {
 }
 
 #site-logo {
-    margin: 0 auto 0.5rem auto;
+    margin: 0 auto 0.5rem 0.5rem;
     width: 4rem;
     height: 4rem;
 }
