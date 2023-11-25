@@ -6,24 +6,31 @@
  */
 
 
-tt, code, pre, kbd, samp {
-    font-family: "Roboto Mono", monospace;
+tt,
+code,
+pre,
+kbd,
+samp {
+	font-family: "Roboto Mono", monospace;
 	font-size: .95rem;
 	line-height: 1.45;
 }
 
-
 .gotohugo p {
-    margin-top: 0.8em;
-    margin-right: 0em;
-    margin-bottom: 0.8em;
-    margin-left: 0em;
+	margin-top: 0.8em;
+	margin-right: 0em;
+	margin-bottom: 0.8em;
+	margin-left: 0em;
 }
 
-.gotohugo p:empty { /* Hide auto-generated empty elements... */
+.gotohugo p:empty {
+	/* Hide auto-generated empty elements... */
 	display: none;
 }
-.gotohugo .HYPE_element_container p:empty, .gotohugo .HYPE_element_container br:empty { /* ...but not those within a HYPE container. */
+
+.gotohugo .HYPE_element_container p:empty,
+.gotohugo .HYPE_element_container br:empty {
+	/* ...but not those within a HYPE container. */
 	display: inline;
 }
 
@@ -32,18 +39,18 @@ tt, code, pre, kbd, samp {
 .gotohugo .doc h3,
 .gotohugo .doc h4,
 .gotohugo .doc h5 {
-    margin-top: 1.6em;
+	margin-top: 1.6em;
 }
 
 .gotohugo .doc {
-    vertical-align: top;
+	vertical-align: top;
 	font-size: 1rem;
-    min-width: 20em;
-    max-width: 33em;
-	width:auto;
-    padding-top: 0em;
-    padding-left: 0em;
-    overflow-x: visible;
+	min-width: 20em;
+	max-width: 33em;
+	width: auto;
+	padding-top: 0em;
+	padding-left: 0em;
+	overflow-x: visible;
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
@@ -87,17 +94,17 @@ tt, code, pre, kbd, samp {
 }
 
 .gotohugo .code {
-	width:auto;
-	max-width:100%;
-    padding-left: 2em;
-    padding-right: 1em;
+	width: auto;
+	max-width: 100%;
+	padding-left: 2em;
+	padding-right: 1em;
 	margin-right: 0em;
 	overflow-x: auto;
 	background-color: white;
 }
 
 .gotohugo .code pre {
-    color: #404040;
+	color: #404040;
 }
 
 .doc pre {
@@ -113,10 +120,9 @@ tt, code, pre, kbd, samp {
 
 
 /* Narrow viewports */
-@media 
-only screen and (max-width: 60em) {
+@media only screen and (max-width: 60em) {
 
-	.gotohugo .source { 
+	.gotohugo .source {
 		display: block;
 		margin: 0;
 		border: none;
@@ -133,13 +139,13 @@ only screen and (max-width: 60em) {
 		background: #f0f0f0;
 	}
 
-	.gotohugo .ccpair { 
-		display: block; 
+	.gotohugo .ccpair {
+		display: block;
 	}
 
 	.gotohugo .comment,
-	.gotohugo .code{
-		display: block; 
+	.gotohugo .code {
+		display: block;
 		padding: 1em 1em 1em;
 		min-width: 0em;
 	}
@@ -159,21 +165,19 @@ only screen and (max-width: 60em) {
 }
 
 /* Very narrow viewports */
-@media 
-only screen and (max-width: 45em) {
+@media only screen and (max-width: 45em) {
 
 	.gotohugo .ccpair {
 		padding: 0em;
 	}
- 
+
 	.gotohugo .comment,
 	.gotohugo .code {
 		padding: 0.5em .5em .5em;
 	}
 }
 
-@media
-print {
+@media print {
 
 	body {
 		background-color: #fff;
