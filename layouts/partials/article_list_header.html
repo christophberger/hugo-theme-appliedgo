@@ -1,0 +1,21 @@
+<header class="article-header">
+    <a href="{{ .Permalink }}">
+    <h1 class="article-title">
+        {{ .Title }}
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <time datetime="{{ .Date }}" >{{ .Date.Format .Site.Params.dateFormat }}</time>
+        </div>
+		&nbsp;&middot;&nbsp;
+		{{ if isset .Params "categories" }}
+			{{ if (gt (len .Params.categories) 0) }}
+					<a class="article-categories-link" href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}">{{ index .Params.categories 0 }}</a>
+			{{ end }}
+			&nbsp;&middot;&nbsp;
+		{{ end }}
+		{{ .ReadingTime }} minute read
+
+    </div>
+</header>

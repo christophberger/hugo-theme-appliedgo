@@ -1,0 +1,125 @@
+baseurl = "http://appliedgo.net/"
+languageCode = "en-us"
+title = "Applied Go"
+author = "Christoph Berger"
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."
+
+MetaDataFormat = "toml"
+theme = "appliedgo"
+paginate = 10
+
+# Server-side higlighting. Needs python3 and pygments.
+pygmentsCodeFences = true
+pygmentsstyle = "trac"
+
+# Useful Markdown options for AppliedGo.net.
+[blackfriday]
+	hrefTargetBlank = true
+	extensions = ["backslashLineBreak", "definitionLists", "strikethrough", "autolink", "noIntraEmphasis", "tables"]
+
+# Navigation
+[[menu.main]] 
+	name= "Home"
+	url = "/"
+	weight = 1
+[[menu.main]] 
+	name= "About"
+	url = "/about/"
+	weight = 10
+[[menu.main]] 
+	name= "FAQ"
+	url = "/faq/"
+	weight = 20
+[[menu.main]] 
+	name= "Domains"
+	url = "/domains/"
+	weight = 30
+[[menu.main]] 
+	name= "Tags"
+	url = "/tags/"
+	weight = 40
+[[menu.main]] 
+	name= "Categories"
+	url = "/categories/"
+	weight = 50
+
+[permalinks]
+    # Optional. Change the permalink format for the 'post' content type.
+    post = "/:filename/"
+
+[taxonomies]
+	# Domain: Use only one to specify the post's area of expertise.
+	domain = "domains"
+	# Use up to three tags. (Using more could be detrimental to SEO friendliness.)
+	tag = "tags"
+	# Use one category to classify the post, e.g. "Tutorial", "Essay", "News", "Internals",...
+    category = "categories"
+
+[params]
+    # If false display full article contents in blog index.
+    # Otherwise show description and 'read on' link to individual blog post page.
+    # Default (if omitted) is true.
+    truncate = true
+
+    # Used when a given page doesn't set its own.
+    defaultDescription = "Fun with Go."
+    defaultKeywords = "Go"
+
+    # Hide estimated reading time for posts.
+    # Default (if omitted) is false.
+    hideReadingTime = false
+
+	# Date format.
+	dateFormat = "2016-01-02"
+
+    # Set background and link/accent colours.
+    colourTheme = "appliedgo-light"
+
+    # Select a syntax highight (if using client-side highlighting).
+    # Check the static/css/highlight directory for options.
+    # highlight = "codepen-embed"
+
+    # Optional additional custom CSS file URL, will override other styles.
+    # customCSS = ""
+
+    # Displays under the site name in the header, keep it short.
+    # You can use markdown here.
+    tagline = "Go beyond the Go tutorials"
+
+	# Site logo.
+	logo = "/img/AppliedGopher_200x200.png"
+
+    # Text for the top menu link, which goes the root URL for the site.
+    # Default (if omitted) is "Blog".
+    home = "Home"
+
+    # Metadata used to drive integrations.
+	disqusShortname= "appliedgo.disqus.com"
+
+    # Sidebar social links, these must be full URLs.
+    github = "https://github.com/appliedgo"
+    #bitbucket = ""
+    #stackOverflow = ""
+    linkedin = "https://de.linkedin.com/christophberger1"
+    googleplus = "https://plus.google.com/u/1/b/101543342403116190763/101543342403116190763"
+    #facebook = ""
+    #youtube = "https://www.youtube.com/channel/UCsf0cZc4jnvE5-CjEhWN8pg"
+
+    # Subscription Buttons
+    rss = true  # switch to true to enable RSS icon link
+    twitter = "https://twitter.com/appliedgo"
+    #email =  # enable Newsletter plugin (not implemented yet)
+
+	# Enable browser update suggestion. This is a notification that appears in outdated browsers, 
+	# asking the user to upgrade their browsers for improved security and functionality.
+	# See browser-update.org for details.
+	browserupdate = true
+
+	# Piwik:
+	# Cookie domain, domains, and URL as required by the Piwik code.
+	# See the Piwik documentation for details.
+	piwik = true
+	piwikCookieDomain = "*.appliedgo.net"
+	piwikDomains = "*.appliedgo.net"
+	piwikURL = "//appliedgo.net/whatscookin/"
+

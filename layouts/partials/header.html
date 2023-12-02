@@ -1,0 +1,50 @@
+<header id="site-header" class="table">
+	<div class="row">
+		<div id="site-logo">
+			<img src={{ .Site.Params.logo }} alt="">
+		</div>
+		<div id="site-head" class="cell left">
+			<div id="site-title">
+				<h1><a href="{{ ref . "/" }}">{{ .Site.Title }}</a></h1>
+				{{ with .Site.Params.tagline }}<div id="tagline">{{ . | markdownify }}</div>{{ end }}
+			</div>
+		</div>
+
+		<div class="cell center">
+			<nav id="site-nav">
+				<div class="liquid-box">
+					{{ range .Site.Menus.main }}
+					<div class="site-nav-item liquid-cell">{{ .Pre }}<a href="{{ .URL | absURL }}">{{ .Name }}</a></div>
+					{{end}}
+				</div>
+				<div class="liquid-box">
+					{{ range .Site.Menus.extern }}
+					<div class="site-nav-external liquid-cell">{{ .Pre }}&#8192;<a href="{{ .URL }}" target="_blank">{{
+							.Name }}</a>&#8192;<i class="fad fa-external-link" aria-hidden="true"></i>&#8192;</div>
+					{{end}}
+				</div>
+			</nav>
+
+		</div>
+
+		<div id="subscribe" class="cell right">
+			<div class="iconprefix">Subscribe:</div>
+			<div class="subscribe-item">
+				{{ if .Site.Params.email }}<a href="/subscribe" title="Get Applied Go updates by email"><i
+						class="far fa-envelope-square fa-2x" aria-hidden="true"></i></a>{{ end }}
+				{{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml"
+					title="Subscribe to the Applied Go RSS feed"><i class="far fa-rss-square fa-2x"></i></a>{{ end }}
+				{{ if .Site.Params.feedly }}<a
+					href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttps%3A%2F%2Fappliedgo.net%2Findex.xml'
+					target='_blank'><img id='feedlyFollow' src='/img/feedly-follow-logo-white_2x.png'
+						title='Follow Applied Go in Feedly' width='36' height='36' align=top></a>{{ end }}
+				<!-- ensure to keep rel="me" for Mastodon verification -->
+				{{ with .Site.Params.mastodon }}<a rel="me" href="{{ . }}" target="_blank" title="Follow Applied Go on Mastodon"><i
+						class="fab fa-mastodon fa-2x" aria-hidden="true"></i></a>{{ end }}
+			</div>
+		</div>
+
+		<div id="site-url" class="cell right">{{ .Site.BaseURL }}</div>
+	</div>
+
+</header>

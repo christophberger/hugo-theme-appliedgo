@@ -1,0 +1,15 @@
+<nav id="page-nav">
+{{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+    {{ if .Paginator.HasPrev }}
+        <a class="extend prev" rel="prev" href="{{ .Site.BaseURL }}{{.Paginator.Prev.URL}}">
+            &#9664; Newer entries
+        </a>
+	{{ end }}
+	<span id="page-nav-separator">&#8192;&#9679;&#8192;</span>
+    {{ if .Paginator.HasNext }}
+        <a class="extend next" rel="next" href="{{ .Site.BaseURL }}{{.Paginator.Next.URL}}">
+            Older entries &#9658;
+        </a>
+    {{ end }}
+{{ end }}
+</nav>
