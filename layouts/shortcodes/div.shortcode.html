@@ -1,1 +1,0 @@
-<div class="{{ range .Params }}{{ . }} {{ end }}">
