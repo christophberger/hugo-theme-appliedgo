@@ -1,118 +1,127 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
 
-<head>
-	<meta charset="utf-8">
-	<link href="https://gmpg.org/xfn/11" rel="profile">
+	<head>
+		<meta charset="utf-8">
+		<link
+		href="https://gmpg.org/xfn/11" rel="profile">
 
-	<!-- Enable responsiveness on mobile devices-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-	<!-- Generate vanity import path if the frontmatter contains a vanity value -->
-	{{ if isset .Params "vanity" }}
-	{{ $url := urls.Parse .Permalink }}
-	{{ $import := path.Join $url.Host "/" $url.Path }}
-	<meta name="go-import" content="{{ $import }} git https://{{ .Params.vanity }}">
-	<meta name="go-source"
-		content="{{ $import }} https://{{ .Params.vanity }} https://{{.Params.vanity}}/tree/master{/dir} https://{{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
-	{{ end }}
+		<!-- Enable responsiveness on mobile devices-->
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-	<title>{{ .Title }} &middot; {{ .Site.Title }}</title>
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/appliedgo.css">
-	<link rel="stylesheet" href="/css/gotohugo.css">
-	{{ if isset .Site.Params "highlight" }}
-	<link rel="stylesheet" href="/css/highlight/{{ .Site.Params.highlight }}.css">{{ end }}
-	<link rel="stylesheet" href="/fonts/fontawesome/css/all.css">
-	{{ with .Site.Params.customCSS }}
-	<link rel="stylesheet" href="{{ . }}">{{ end }}
-
-	<!-- Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
-	<link href="/favicon.png" rel="icon">
-
-	<!-- RSS -->
-	{{ $siteTitle := .Site.Title }}
-	{{ $authorName :=.Site.Params.Author.Name }}
-	{{ with .OutputFormats.Get "RSS" }}
-	<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}" />{{ end }}
-
-	<!-- Meta -->
-	<meta name="description"
-		content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
-
-	<meta name="keywords"
-		content="{{ .Site.Params.basicKeywords }}{{ if ne .Site.Params.basicKeywords "" }},{{ end }}{{ range $index, $element := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ $element }}{{ else }}{{ if eq .Site.Params.basicKeywords "" }}{{ .Site.Params.defaultKeywords }}{{ end }}{{ end }}">
+		<!-- Generate vanity import path if the frontmatter contains a vanity value -->
+		{{ if isset .Params "vanity" }}
+			{{ $url := urls.Parse .Permalink }}
+			{{ $import := path.Join $url.Host "/" $url.Path }}
+			<meta name="go-import" content="{{ $import }} git https://{{ .Params.vanity }}">
+			<meta name="go-source" content="{{ $import }} https://{{ .Params.vanity }} https://{{.Params.vanity}}/tree/master{/dir} https://{{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
+		{{ end }}
 
 
-	<!-- The following Open Graph metadata setup is taken from: https://discuss.gohugo.io/t/hugo-seo-social-partials/353/45 -->
+		<title>{{ .Title }}
+			&middot;
+			{{ .Site.Title }}</title>
 
-	<!-- open graph -->
-	<meta property="og:title" content="{{ if ne .RelPermalink " /" }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
-	<meta property="og:description" content="{{ .Params.description }}" />
-	<meta property="og:site_name" content="{{ .Site.Title }}" />
-	<meta property="og:url" content="{{ .Permalink }}" />
-	<meta property="fb:app_id" content="{{ .Site.Params.fb_appid}}" />
-	<meta property="og:locale" content="{{ .Site.LanguageCode }}">
+		<!-- CSS -->
+		<link rel="stylesheet" href="/css/normalize.css">
+		<link rel="stylesheet" href="/css/appliedgo.css">
+		<link rel="stylesheet" href="/css/gotohugo.css">
+		{{ if isset .Site.Params "highlight" }}
+			<link rel="stylesheet" href="/css/highlight/{{ .Site.Params.highlight }}.css">
+		{{ end }}
+		<link rel="stylesheet" href="/fonts/fontawesome/css/all.css">
+		{{ with .Site.Params.customCSS }}
+			<link rel="stylesheet" href="{{ . }}">
+		{{ end }}
 
-	{{ if .IsPage }}
-	<!-- If it is part of a series, link to related articles -->
-	{{ $permalink := .Permalink }}
-	{{ $siteSeries := .Site.Taxonomies.series }}
-	{{ with .Params.series }}
-	{{ range $name := . }}
-	{{ $series := index $siteSeries $name }}
-	{{ range $page := first 6 $series.Pages }}
-	{{ if ne $page.Permalink $permalink }}
-	<meta property="og:see_also" content="{{ $page.Permalink }}" />
-	{{ end }}
-	{{ end }}
-	{{ end }}
-	{{ end }}
-	<meta property="og:type" content="article" />
-	<meta property="article:modified_time" content="{{ .Date }}" />
-	<meta property="article:section" content="{{ .Section }}" />
-	<meta property="article:published_time" content="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" | safeHTML }}" />
-	{{ with .Params.og_images }}
-	{{ range first 6 . }}
-	<meta property="og:image" content="{{ . }}" />
-	{{ end }}
-	{{ end }}
-	<meta property="og:image" content="{{ .Params.og_image }}" />
-	<meta property="og:image:url" content="{{ .Params.og_image }}" />
-	{{ range .Params.tags }}
-	<meta property="article:tag" content="{{ . }}" />
-	{{ end }}
-	{{ else }}
-	<meta property="og:type" content="blog" />
-	<meta property="og:image" content="{{ .Site.Params.og_image }}" />
-	<meta property="og:image:url" content="{{ .Site.Params.og_image }}" />
-	{{ end }}
+		<!-- Icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+		<link
+		href="/favicon.png" rel="icon">
 
-	<!-- twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:image:src" content="{{ .Params.og_image }}" />
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="{{ .Title }}" />
-	<meta name="twitter:description"
-		content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}" />
-	<meta name="twitter:domain" content="{{ .Site.Title }}" />
-	<meta name="twitter:creator" content="{{ .Site.Params.authortwitter }}" />
+		<!-- RSS -->
+		{{ $siteTitle := .Site.Title }}
+		{{ $authorName :=.Site.Params.Author.Name }}
+		{{ with .OutputFormats.Get "RSS" }}
+			<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}"/>
+		{{ end }}
 
-	<!-- Hugo Meta Tag -->
-	{{ hugo.Generator }}
+		<!-- Meta -->
+		<meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+
+		<meta name="keywords" content="{{ .Site.Params.basicKeywords }}{{ if ne .Site.Params.basicKeywords "" }},{{ end }}{{ range $index, $element := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ $element }}{{ else }}{{ if eq .Site.Params.basicKeywords "" }}{{ .Site.Params.defaultKeywords }}{{ end }}{{ end }}">
+
+		<!-- https://discourse.gohugo.io/t/custom-robots-txt-and-sitemap-xml-templates/11869 -->
+		{{ with .Params.robotsdisallow }}
+			<meta name="robots" content="noindex, nofollow, noarchive">
+		{{ else }}
+			<meta name="robots" content="index, follow, archive">
+		{{ end }}
 
 
-	<!-- Pirsch -->
-	<script defer type="text/javascript" src="https://api.pirsch.io/pirsch.js"
-		id="pirschjs"
-		data-code="xqgDZYpPmnzroEgz6HkdVqby3M4K4Nj3"
-		data-dev></script>
-<!-- End Pirsch -->
+		<!-- The following Open Graph metadata setup is taken from: https://discuss.gohugo.io/t/hugo-seo-social-partials/353/45 -->
 
-</head>
-<body{{ with .Site.Params.colourTheme }} class="{{ . }}" {{ end }}>
+		<!-- open graph -->
+		<meta property="og:title" content="{{ if ne .RelPermalink " /" }}{{ .Title }} - {{ end }}{{ .Site.Title }}"/>
+		<meta property="og:description" content="{{ .Params.description }}"/>
+		<meta property="og:site_name" content="{{ .Site.Title }}"/>
+		<meta property="og:url" content="{{ .Permalink }}"/>
+		<meta property="fb:app_id" content="{{ .Site.Params.fb_appid}}"/>
+		<meta property="og:locale" content="{{ .Site.LanguageCode }}">
+
+		{{ if .IsPage }}
+			<!-- If it is part of a series, link to related articles -->
+			{{ $permalink := .Permalink }}
+			{{ $siteSeries := .Site.Taxonomies.series }}
+			{{ with .Params.series }}
+				{{ range $name := . }}
+					{{ $series := index $siteSeries $name }}
+					{{ range $page := first 6 $series.Pages }}
+						{{ if ne $page.Permalink $permalink }}
+							<meta property="og:see_also" content="{{ $page.Permalink }}"/>
+						{{ end }}
+					{{ end }}
+				{{ end }}
+			{{ end }}
+			<meta property="og:type" content="article"/>
+			<meta property="article:modified_time" content="{{ .Date }}"/>
+			<meta property="article:section" content="{{ .Section }}"/>
+			<meta property="article:published_time" content="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" | safeHTML }}"/>
+			{{ with .Params.og_images }}
+				{{ range first 6 . }}
+					<meta property="og:image" content="{{ . }}"/>
+				{{ end }}
+			{{ end }}
+			<meta property="og:image" content="{{ .Params.og_image }}"/>
+			<meta property="og:image:url" content="{{ .Params.og_image }}"/>
+			{{ range .Params.tags }}
+				<meta property="article:tag" content="{{ . }}"/>
+			{{ end }}
+		{{ else }}
+			<meta property="og:type" content="blog"/>
+			<meta property="og:image" content="{{ .Site.Params.og_image }}"/>
+			<meta property="og:image:url" content="{{ .Site.Params.og_image }}"/>
+		{{ end }}
+
+		<!-- twitter -->
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:image:src" content="{{ .Params.og_image }}"/>
+		<meta name="twitter:card" content="summary"/>
+		<meta name="twitter:title" content="{{ .Title }}"/>
+		<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}"/>
+		<meta name="twitter:domain" content="{{ .Site.Title }}"/>
+		<meta
+		name="twitter:creator" content="{{ .Site.Params.authortwitter }}"/>
+
+		<!-- Hugo Meta Tag -->
+		{{ hugo.Generator }}
+
+
+		<!-- Pirsch -->
+		<script defer type="text/javascript" src="https://api.pirsch.io/pirsch.js" id="pirschjs" data-code="xqgDZYpPmnzroEgz6HkdVqby3M4K4Nj3" data-dev></script>
+		<!-- End Pirsch -->
+
+	</head>
+	<body{{with.Site.Params.colourTheme}} class="{{ . }}" {{ end }}>
