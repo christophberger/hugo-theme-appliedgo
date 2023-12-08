@@ -1,0 +1,44 @@
+<footer class="article-footer">
+
+    <!-- Mailing List -->
+
+    <section id="joinMailingList">
+
+        <div class="joinMailingListText">
+            {{ partial "subscribe_form" . }}
+        </div>
+
+    </section>
+
+    <a data-url="{{ .Permalink }}" data-id="{{ .File.UniqueID }}" class="article-share-link">
+        Share
+    </a>
+
+    <!-- Share Buttons -->
+
+    <div class="agshare_bottom">
+        <div class="agshare_text">Like this article? Tell your friends!</div>
+        {{ partial "share_buttons.html" . }}
+	</div>
+
+	<!-- Related articles -->
+
+	<!-- Source: https://discourse.gohugo.io/t/template-logic-for-related-posts/2947/3 -->
+
+	{{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+	{{ $.Scratch.Set "has_related" true }}
+	{{ end }}
+
+	{{ if $.Scratch.Get "has_related" }}
+		<div class="related_articles">
+		<h2>Related articles</h2>
+		<ul>
+		{{ $num_to_show := .Site.Params.related_content_limit | default 7 }}
+		{{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+			<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+		{{ end }}
+		</ul>
+	</div>
+	{{ end }}
+
+</footer>
