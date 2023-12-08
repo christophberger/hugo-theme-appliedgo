@@ -1,13 +1,14 @@
 <!-- https://github.com/stereobooster/hugo-ideal-image/blob/main/layouts/partials/picture.html -->
 
-{{ $img := .img }}
-{{ $alt := .alt }}
-{{ $class := .class }}
-{{ $lazy := .lazy }}
-{{ $webp := .webp }}
-{{ $lqip := .lqip }}
+{{- $img := .img -}}
+{{- $alt := .alt -}}
+{{- $class := .class -}}
+{{- $lazy := .lazy -}}
+{{- $webp := .webp -}}
+{{- $lqip := .lqip -}}
 
 {{ with $img }}
+  <!-- SVGs -->
   {{ if (eq .MediaType.SubType "svg") }}
     {{ $width := ""}}
     {{ $height := ""}}
@@ -39,6 +40,8 @@
         {{ with $lazy }} loading="lazy" decoding="async" {{ end }}
       >
     </picture>
+
+  <!-- WebP -->
   {{ else }}
     {{ $s := newScratch }}
     {{ $s.SetInMap "sizes" "330w" 330 }}
@@ -54,13 +57,13 @@
     {{ end }}
 
     <picture 
-      {{ with $class }} class="{{ . }}" {{ end }}
-      {{ if $lqip }}
+      {{- with $class }} class="{{ . }}" {{ end -}}
+      {{- if $lqip }}
         {{ $bg := (.Resize "20x webp q20").Content | base64Encode }}
         style="background-image:url(data:image/webp;base64,{{ $bg }});background-size:cover"
-      {{ end }}
+      {{ end -}}
     >
-    {{ if (and $webp (ne .MediaType.SubType "webp")) }}
+    {{- if (and $webp (ne .MediaType.SubType "webp")) }}
       <source 
         {{ if lt .Width 660 }}
           {{ with .Resize (printf "%dx%d webp" .Width .Height) }}
@@ -76,24 +79,25 @@
         type="image/webp" 
       />
     {{ end }}
-      <img alt="{{ $.Text }}"
-        {{ with $class }} class="{{ . }}" {{ end }}
-        {{ with $alt }} alt="{{ . }}" {{ end }}
-        {{ with $lazy }} loading="lazy" decoding="async" {{ end }}
+      <img alt="{{ $.Text -}}"
+        width="{{ .Width }}"
+        height="{{ .Height }}"
+        {{ with $class }} class="{{ . }}" {{ end -}}
+        {{ with $alt -}} alt="{{ . }}" {{ end -}}
+        {{ with $lazy }} loading="lazy" decoding="async" {{ end -}}
         {{ if lt .Width 660 }}
           src="{{ .RelPermalink }}"
         {{ else }}
           srcset="
-            {{ range $key, $size := $s.Get "sizes" }}
-              {{ if eq $size $img.Width}}
+            {{- range $key, $size := $s.Get "sizes" }}
+              {{- if eq $size $img.Width}}
                 {{ $img.RelPermalink }} {{ $key }},
-              {{ else }}
-                {{ ($img.Resize (printf "%dx" $size)).RelPermalink }} {{ $key }},
-              {{ end }}
-            {{ end }}"
+              {{- else }}
+                {{- ($img.Resize (printf "%dx" $size)).RelPermalink }} {{ $key }},
+              {{- end }}
+            {{ end -}}"
           src="{{ (.Resize "660x").RelPermalink }}"
-        {{ end }}
-      >
+        {{- end -}}>
     </picture>
   {{ end }}
 {{ end }}

@@ -1,29 +1,15 @@
 <!-- Non-invasive social media share buttons -->
 
-
 <div class="agshare_buttons">
-
-	<!-- Facebook - https://developers.facebook.com/docs/sharing/webmasters -->
-	<!-- http://support.imcreator.com/hc/en-us/articles/232392888-Creating-a-Facebook-share-link-on-your-page -->
-
-	<!--
-	<a class="agshare_fb agshare_button" href="#" onclick="
-		window.open(
-			'https://www.facebook.com/sharer/sharer.php?u={{.Permalink}}%2F%3Fsrc%3Dfb',
-			'facebook-share-dialog',
-			'width=626,height=436');
-		return false;">
-		<i class="far fa-facebook-square fa-2x" title="Share on Facebook" aria-hidden="true"></i>
-	</a>
-	-->
-
 
 	<!-- Twitter - https://dev.twitter.com/web/tweet-button/web-intent -->
 
-	<a class="agshare_twitter agshare_button" href="https://twitter.com/intent/tweet?text={{.Description}}&url={{.Permalink}}%2F%3Fsrc%3Dt&hashtags=golang,appliedgo&related=AppliedGo" target="_blank"><i class="fab fa-twitter-square fa-2x" title="Share on Twitter" aria-hidden="true"></i></a>
-
+		<a class="agshare_twitter agshare_button" href="https://twitter.com/intent/tweet?text={{.Description}}&url={{.Permalink}}%2F%3Fsrc%3Dt&hashtags=golang,appliedgo&related=AppliedGo" target="_blank"> <i class="fab fa-twitter-square fa-2x" title="Share on X" aria-label="Share on X"></i>
+	</a>
 
 	<!-- LinkedIn - https://developer.linkedin.com/docs/share-on-linkedin -->
 
-	<a class="agshare_linkedin agshare_button" href="https://www.linkedin.com/shareArticle?mini=true&url={{.Permalink}}%2F%3Fsrc%3Din&title={{.Title}}%20&middot;%20Applied%20Go&summary={{.Description}}" target="_blank"><i class="fab fa-linkedin fa-2x" title="Share on LinkedIn" aria-hidden="true"></i></a>
+	<a class="agshare_linkedin agshare_button" href="https://www.linkedin.com/shareArticle?mini=true&url={{.Permalink}}%2F%3Fsrc%3Din&title={{.Title}}%20&middot;%20Applied%20Go&summary={{.Description}}" target="_blank">
+		<i class="fab fa-linkedin fa-2x" title="Share on LinkedIn" aria-label="Share on LinkedIn"></i>
+	</a>
 </div>
