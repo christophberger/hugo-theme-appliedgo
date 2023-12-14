@@ -384,6 +384,11 @@ print {
         text-align: center;
     }
 
+    .site-nav-item {
+        font-size: 1em;
+        padding: 0.2em;
+    }
+
     #site-footer {
         display: block;
         box-sizing: border-box;
@@ -525,6 +530,11 @@ print {
         text-align: left;
     }
 
+    .site-nav-item {
+        font-size: 1.2em;
+        padding: 0.2em;
+    }
+
     .archives {
         margin-left: 1em;
     }
@@ -545,8 +555,21 @@ print {
         text-align: center;
     }
 
+    #site-footer .cell.center {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #site-footer .cell.center .top {
+        display: block;
+        order: -1;
+    }
+
+    #site-footer .cell.center .bottom {
+        display: block;
+    }
+
     #site-footer .right {
-        float: right;
         text-align: right;
     }
 }
@@ -626,10 +649,6 @@ print {
     padding: 0.5em;
     margin: auto;
     text-align: center;
-}
-
-.site-nav-item a {
-    padding: 0.2em;
 }
 
 #subscribe {
