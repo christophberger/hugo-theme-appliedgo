@@ -3,17 +3,6 @@
 		<a href="{{ "/licenses/" | absURL }}">&copy; 2016-{{ now.Format "2006" }} {{.Site.Params.Author.name }}</a>
 	</div>
 	<div class="cell center">
-<<<<<<< Updated upstream
-		<div class="cell center top">
-			{{- range site.Menus.footer }}
-			<a {{ with .Params.class -}} class="{{ . }}" {{ end -}} href="{{ .URL }}">
-				{{ .Name }} &middot;
-			</a>
-			{{- end }}
-		</div>
-		<div class="cell center bottom">
-||||||| Stash base
-=======
 		<div class="cell center top">
 			&middot;
 			{{- range site.Menus.footer }}
@@ -23,7 +12,6 @@
 			{{- end }}
 		</div>
 		<div class="cell center bottom">
->>>>>>> Stashed changes
 		<a href="{{ "/imprint/" | absURL }}">Legal Notice/Impressum</a>
 		&nbsp;&middot;&nbsp;
 		<a href="{{ "/privacy/" | absURL }}">Privacy Policy/Datenschutzerklärung</a>
