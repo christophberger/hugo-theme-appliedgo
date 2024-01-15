@@ -53,6 +53,9 @@
 
 		<meta name="keywords" content="{{ .Site.Params.basicKeywords }}{{ if ne .Site.Params.basicKeywords "" }},{{ end }}{{ range $index, $element := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ $element }}{{ else }}{{ if eq .Site.Params.basicKeywords "" }}{{ .Site.Params.defaultKeywords }}{{ end }}{{ end }}">
 
+		<!-- Canonical URL -->
+		<link rel="canonical" href="{{ .Permalink }}">
+
 		<!-- https://discourse.gohugo.io/t/custom-robots-txt-and-sitemap-xml-templates/11869 -->
 		{{ with .Params.robotsdisallow }}
 			<meta name="robots" content="noindex, nofollow, noarchive">
