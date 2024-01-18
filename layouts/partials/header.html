@@ -39,8 +39,10 @@
 					target='_blank'><img id='feedlyFollow' src='/img/feedly-follow-logo-white_2x.png'
 						title='Follow Applied Go in Feedly' width='36' height='36' align=top></a>{{ end }}
 				<!-- ensure to keep rel="me" for Mastodon verification -->
-				{{ with .Site.Params.mastodon }}<a rel="me" href="{{ . }}" target="_blank" title="Follow Applied Go on Mastodon"><i
+				{{ with .Site.Params.mastodon }}<a rel="me" href="{{ . }}" target="_blank" title="Follow Christoph on Mastodon"><i
 						class="fab fa-mastodon fa-2x" aria-hidden="true"></i></a>{{ end }}
+				<!-- old Mastodon account -->
+				{{ with .Site.Params.mastodonOld }}<a rel="me" href="{{ . }}" ></a>{{ end }}
 			</div>
 		</div>
 
