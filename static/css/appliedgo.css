@@ -275,8 +275,7 @@ a:hover:after {
 
 #joinMailingList {
     border: 1pt solid #404040;
-    background-color: #FFF;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #F8F8F8;
 }
 
 #joinMailingList i {
@@ -890,4 +889,72 @@ blockquote:before {
     #article-nav {
         display: none;
     }
+
+    /* Buttondown subscription form */
+    form.bd-form {
+        display: none;
+    }
+}
+
+/*
+External stuff, such as the subscribe form
+*/
+
+/* Buttondown subscription form */
+
+form.bd-form {
+    max-width: 30em;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+form.bd-form label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+form.bd-form input[type='text'],
+form.bd-form input[type='email'],
+form.bd-form input[type='submit'] {
+    width: 100%;
+    font-size: 1em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+form.bd-form input[type='checkbox'] {
+    margin-right: 5px;
+}
+
+/* Checkbox label to the right */
+form.bd-form label[for='bd-consent'] {
+    display: inline;
+}
+
+form.bd-form input[type='submit'] {
+    background: #A2CD5A;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+}
+
+form.bd-form input[type='submit']:hover {
+    background: olivedrab;
+}
+
+form.bd-form #bd-powered {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+form.bd-form a {
+    color: #007bff;
+    text-decoration: none;
 }

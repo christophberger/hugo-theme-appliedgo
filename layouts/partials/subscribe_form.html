@@ -1,10 +1,25 @@
-<div id="subscription-form">
+<div
+	id="subscription-form">
 
-    <!-- paste subscription form code here -->
+	<!-- paste subscription form code here -->
 
-    {{ partial "nlannouncement.html" . }}
-<div class="ml-embedded" data-form="6aWnWA"></div>
-    <div style="text-align:center; color:grey;"><noscript>Want to subscribe to weekly Go news? Please ensure JavaScript
-            is enabled. Maybe you need to adjust your ad blocker.</noscript></div>
-    <!-- end -->
+	{{ partial "nlannouncement.html" . }}
+	<form action="https://buttondown.email/api/emails/embed-subscribe/christophberger" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/christophberger', 'popupwindow')" class="bd-form">
+		<h3>Get the Applied Go Weekly Newsletter</h3>
+		<p>Stay up to date in the world of Go. Get a hand-curated, commented list of articles and projects, and more, every week right in your inbox.</p>
+		<label for="bd-name">Your first name or nick name — how shall i greet you? (optional)</label>
+		<input type="text" name="metadata__name" id="bd-name"/>
+		<label for="bd-email">Your email</label>
+		<input type="email" name="email" id="bd-email"/>
+		<input type="checkbox" name="metadata__consent" id="bd-consent" required/>
+		<label for="bd-consent">Yes, I want to subscribe to the weekly newsletter. I can unsubscribe at any time.
+		</label>
+		<input type="hidden" name="tag" value="Tester"/>
+		<input type="submit" value="Subscribe"/>
+		<div>By subscribing, you agree to the
+			<a href="https://appliedgo.net/privacy" target="_blank">privacy policy</a>.</div>
+		<p id="bd-powered">
+			<a href="https://buttondown.email/refer/christophberger" target="_blank">Powered by Buttondown.</a>
+		</p>
+	</form>
 </div>
