@@ -1,10 +1,30 @@
 /* gotohugo CSS 
 
- Most measurements are given in em. See [The Goldilocks Approach](http://goldilocksapproach.com/demo/)
- for the rationale behind this.
- 
+ Most measurements are given in em. See [The Goldilocks Approach](https://web.archive.org/web/20160403191546/http://goldilocksapproach.com/demo/) (archived)
+ for the rationale behind this. (Goldilocks approach home page (archived): [The Goldilocks Approach to Responsive Web Design](https: //web.archive.org/web/20160328184727/http://goldilocksapproach.com/)
  */
 
+/* Colors */
+
+:root {
+	--ccpair-color: #404040;
+	--ccpair-bg-color: #f0f0f0;
+	--comment-color: #404040;
+	--comment-bg-color: #F0F0F0;
+	--pre-color: #404040;
+	--pre-bg-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--ccpair-color: #f0f0f0;
+		--ccpair-bg-color: #404040;
+		--comment-color: #f0f0f0;
+		--comment-bg-color: #343434;
+		--pre-color: #f0f0f0;
+		--pre-bg-color: #282828;
+	}
+}
 
 tt,
 code,
@@ -48,7 +68,6 @@ pre {
 }
 
 .gotohugo .doc {
-	vertical-align: top;
 	font-size: 1rem;
 	min-width: 20em;
 	max-width: 33em;
@@ -56,7 +75,6 @@ pre {
 	padding-top: 0em;
 	padding-left: 0em;
 	overflow-x: visible;
-	display: block;
 	margin-right: auto;
 	margin-left: auto;
 	/*margin-bottom: 1.6em;*/
@@ -78,24 +96,33 @@ pre {
 
 .gotohugo .ccpair {
 	display: table-row;
-	background-color: #f0f0f0
+	color: var(--ccpair-color);
+	background-color: var(--ccpair-bg-color);
 }
 
 .gotohugo .comment,
 .gotohugo .code {
 	display: table-cell;
 	min-width: 20em;
-	padding-bottom: 0.8em;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
 }
 
 .gotohugo .comment {
 	padding-right: 1em;
+	padding-left: 1em;
 	max-width: 33em;
+	margin-left: auto;
+	margin-right: auto;
+	color: var(--comment-color);
+	background-color: var(--comment-bg-color);
 }
 
 .gotohugo .code pre {
 	margin-top: 0em;
 	margin-bottom: 0em;
+	color: var(--pre-color);
+	background-color: var(--pre-bg-color);
 }
 
 .gotohugo .code {
@@ -105,16 +132,25 @@ pre {
 	padding-right: 1em;
 	margin-right: 0em;
 	overflow-x: auto;
-	background-color: white;
+	color: var(--pre-color);
+	background-color: var(--pre-bg-color);
+
 }
 
 .gotohugo .code pre {
-	color: #404040;
+	color: var(--pre-color);
+	background-color: var(--pre-bg-color);
 }
 
 .doc pre {
-	background-color: white;
+	color: var(--pre-color);
+	background-color: var(--pre-bg-color);
 	padding: 0.5em;
+}
+
+.highlight {
+	color: var(--pre-color);
+	background-color: var(--pre-bg-color);
 }
 
 .gotohugo img {
@@ -130,6 +166,7 @@ pre {
 	.gotohugo .source {
 		display: block;
 		margin: 0;
+		padding: 0;
 		border: none;
 	}
 
@@ -141,7 +178,6 @@ pre {
 		font-style: italic;
 		padding: 0.5em;
 		margin: 0 auto 0 auto;
-		background: #f0f0f0;
 	}
 
 	.gotohugo .ccpair {
@@ -185,10 +221,12 @@ pre {
 @media print {
 
 	body {
+		color: #404040;
 		background-color: #fff;
 	}
 
 	.gotohugo .code {
+		color: #404040;
 		background-color: #fff;
 	}
 

@@ -1,95 +1,77 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		<link
-		href="https://gmpg.org/xfn/11" rel="profile">
+<head>
+	<meta charset="utf-8">
+	<link href="https://gmpg.org/xfn/11" rel="profile">
 
-		<!-- Enable responsiveness on mobile devices-->
-		<meta
-		name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<!-- Enable responsiveness on mobile devices-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-		<!-- Generate vanity import path if the frontmatter contains a vanity value -->
-		{{ if isset .Params "vanity" }}
-			{{ $url := urls.Parse .Permalink }}
-			{{ $import := path.Join $url.Host "/" $url.Path }}
-			<meta name="go-import" content="{{ $import }} git https://{{ .Params.vanity }}">
-			<meta name="go-source" content="{{ $import }} https://{{ .Params.vanity }} https://{{.Params.vanity}}/tree/master{/dir} https://{{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
-		{{ end }}
+	<!-- Generate vanity import path if the frontmatter contains a vanity value -->
+	{{ if isset .Params "vanity" }}
+	{{ $url := urls.Parse .Permalink }}
+	{{ $import := path.Join $url.Host "/" $url.Path }}
+	<meta name="go-import" content="{{ $import }} git https://{{ .Params.vanity }}">
+	<meta name="go-source"
+		content="{{ $import }} https://{{ .Params.vanity }} https://{{.Params.vanity}}/tree/master{/dir} https://{{.Params.vanity}}/blob/master{/dir}/{file}#L{line}">
+	{{ end }}
 
 
-		<title>{{ .Title }}
-			&middot;
-			{{ .Site.Title }}</title>
+	<title>{{ .Title }}
+		&middot;
+		{{ .Site.Title }}</title>
 
-		<!-- CSS -->
-		<link rel="stylesheet" href="/css/normalize.css">
-		<link rel="stylesheet" href="/css/appliedgo.css">
-		<link rel="stylesheet" href="/css/gotohugo.css">
-		{{ if isset .Site.Params "highlight" }}
-			<link rel="stylesheet" href="/css/highlight/{{ .Site.Params.highlight }}.css">
-		{{ end }}
-		<link rel="stylesheet" href="/fonts/fontawesome/css/all.css">
-		{{ with .Site.Params.customCSS }}
-			<link rel="stylesheet" href="{{ . }}">
-		{{ end }}
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/appliedgo.css">
+	<link rel="stylesheet" href="/css/gotohugo.css">
+	<link rel="stylesheet" href="/css/syntax-light.css">
+	<link rel="stylesheet" href="/css/syntax-dark.css">
+	<link rel="stylesheet" href="/fonts/fontawesome/css/all.css">
 
-		<!-- Icons -->
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
-		<link
-		href="/favicon.png" rel="icon">
+	{{ with .Site.Params.customCSS }}
+	<link rel="stylesheet" href="{{ . }}">
+	{{ end }}
 
-		<!-- RSS -->
-		{{ $siteTitle := .Site.Title }}
-		{{ $authorName :=.Site.Params.Author.Name }}
-		{{ with .OutputFormats.Get "RSS" }}
-			<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}"/>
-		{{ end }}
+	<!-- Icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+	<link href="/favicon.png" rel="icon">
 
-		<!-- Meta -->
-		<meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+	<!-- RSS -->
+	{{ $siteTitle := .Site.Title }}
+	{{ $authorName :=.Site.Params.Author.Name }}
+	{{ with .OutputFormats.Get "RSS" }}
+	<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}" />
+	{{ end }}
 
-		<meta
-		name="keywords" content="{{ .Site.Params.basicKeywords }}{{ if ne .Site.Params.basicKeywords "" }},{{ end }}{{ range $index, $element := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ $element }}{{ else }}{{ if eq .Site.Params.basicKeywords "" }}{{ .Site.Params.defaultKeywords }}{{ end }}{{ end }}">
+	<!-- Meta -->
+	<meta name="description"
+		content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
 
-		<!-- Canonical URL -->
-		<link
-		rel="canonical" href="{{ urls.JoinPath .Site.Params.canonicalURL .RelPermalink }}">
+	<meta name="keywords"
+		content="{{ .Site.Params.basicKeywords }}{{ if ne .Site.Params.basicKeywords "" }},{{ end }}{{ range $index, $element := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ $element }}{{ else }}{{ if eq .Site.Params.basicKeywords "" }}{{ .Site.Params.defaultKeywords }}{{ end }}{{ end }}">
 
-		<!-- https://discourse.gohugo.io/t/custom-robots-txt-and-sitemap-xml-templates/11869 -->
-		{{ with .Params.robotsdisallow }}
-			<meta name="robots" content="noindex, nofollow, noarchive">
-		{{ else }}
-			<meta name="robots" content="index, follow, archive">
-		{{ end }}
+	<!-- Canonical URL -->
+	<link rel="canonical" href="{{ urls.JoinPath .Site.Params.canonicalURL .RelPermalink }}">
 
-		<!-- Social media metadata -->
-		{{ template "_internal/opengraph.html" . }}
-		{{ template "_internal/schema.html" . }}
-		{{ template "_internal/twitter_cards.html" . }}
+	<!-- https://discourse.gohugo.io/t/custom-robots-txt-and-sitemap-xml-templates/11869 -->
+	{{ with .Params.robotsdisallow }}
+	<meta name="robots" content="noindex, nofollow, noarchive">
+	{{ else }}
+	<meta name="robots" content="index, follow, archive">
+	{{ end }}
 
+	<!-- Social media metadata -->
+	{{ template "_internal/opengraph.html" . }}
+	{{ template "_internal/schema.html" . }}
+	{{ template "_internal/twitter_cards.html" . }}
 
-		<!-- Pirsch -->
-		<script defer type="text/javascript" src="https://api.pirsch.io/pirsch.js" id="pirschjs" data-code="xqgDZYpPmnzroEgz6HkdVqby3M4K4Nj3" data-dev></script>
-		<!-- End Pirsch -->
+	<!-- Pirsch -->
+	<script defer type="text/javascript" src="https://api.pirsch.io/pirsch.js" id="pirschjs"
+		data-code="xqgDZYpPmnzroEgz6HkdVqby3M4K4Nj3" data-dev></script>
+	<!-- End Pirsch -->
 
-		<!-- MailerLite Universal -->
-		<script>
-			(function (w, d, e, u, f, l, n) {
-w[f] = w[f] || function () {
-(w[f].q = w[f].q || []).push(arguments);
-},
-l = d.createElement(e),
-l.async = 1,
-l.src = u,
-n = d.getElementsByTagName(e)[0],
-n.parentNode.insertBefore(l, n);
-})(window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-ml('account', '5763');
-		</script>
-		<!-- End MailerLite Universal -->
-
-	</head>
-	<body{{with.Site.Params.colourTheme}} class="{{ . }}" {{ end }}>
+</head>
+<body>
