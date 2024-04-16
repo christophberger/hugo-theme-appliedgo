@@ -102,6 +102,11 @@
     /* Legacy iOS */
 }
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 html {
     font-family: 'Lato', 'Helvetica', sans-serif;
@@ -167,6 +172,20 @@ small,
     font-size: 0.833em;
 }
 
+tt,
+code,
+pre,
+kbd,
+samp {
+    font-family: "Roboto Mono", monospace;
+    font-size: .95rem;
+    line-height: 1.45;
+}
+
+pre {
+    /* If content exceeds height of container, overflow! */
+    overflow-x: auto;
+}
 
 /*
  * Defaults
@@ -278,7 +297,6 @@ body {
 }
 
 
-
 /*Links */
 
 
@@ -367,7 +385,7 @@ a:hover:after {
  */
 
 
-/* Adaptive, device-first layout */
+/* Adaptive, mobile-first layout */
 
 
 /* Viewport: mobile device, or "too small" */
@@ -518,13 +536,36 @@ print {
     .footnotes ol li {
         font-size: 0.9em;
     }
-}
 
+    p {
+        margin-top: 0.8em;
+        margin-right: 0em;
+        margin-bottom: 0.8em;
+        margin-left: 0em;
+    }
+
+    .doc {
+        font-size: 1rem;
+        max-width: 33em;
+        width: 100%;
+        padding-top: 0em;
+        padding-left: 0em;
+        overflow-x: visible;
+        margin-right: auto;
+        margin-left: auto;
+        /*margin-bottom: 1.6em;*/
+    }
+
+    .summary {
+        margin: 0em auto 0em auto;
+        padding: 0em 0em 0em 0em;
+    }
+
+}
 
 /* Viewport: just about right */
 
-@media screen and (min-width: 45em),
-print {
+@media screen and (min-width: 45em) {
 
     main,
     .main {
@@ -620,9 +661,6 @@ print {
 /* Viewport: too big */
 
 @media screen and (min-width: 60em) {
-    .doc {
-        max-width: 60em;
-    }
 
     .table {
         display: table;
@@ -727,7 +765,7 @@ print {
     display: inline;
 }
 
-.post .gotohugo .summary {
+.post .summary {
     font-weight: bold;
 }
 
@@ -894,7 +932,7 @@ blockquote:before {
 
 
 /*
- * Print style
+ * Only for print
  */
 
 @media print {
