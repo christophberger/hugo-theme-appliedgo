@@ -1,0 +1,15 @@
+<main role="main" class="main post">
+    <article>
+        <div class="issue-inner">
+
+            {{ partial "issue_header" . }}
+            <div class="issue-entry">
+                {{ .Content }}
+            </div>
+            {{ partial "issue_footer" . }}
+        </div>
+
+        {{ partial "prev_next_issue" . }}
+    </article>
+
+</main>
