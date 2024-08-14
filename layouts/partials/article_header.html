@@ -1,4 +1,10 @@
 <header class="article-header">
+{{ if .Params.banner }} 
+<div class = "content-banner-image" style="{{ if .Params.bannerheight }}
+        height:  {{ .Params.bannerheight }}px;{{ end }}" >
+        <img src="{{ .Params.banner }}" class="pure-img" style="width: 100%;" />
+        </div>
+    {{ end }}
     <a href="{{ .Permalink }}">
     <h1 class="article-title">
         {{ .Title }}
