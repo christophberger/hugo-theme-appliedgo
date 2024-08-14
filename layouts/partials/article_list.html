@@ -4,12 +4,12 @@
 	{{ if (not (eq .Title ""))}} <!-- Suppress non-post html files, like Hype animations. -->
     <article class="article article-type-post">
         <div class="article-inner">
-            {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
+            {{ if .Params.banner }}
             <a href="{{ .Permalink }}">
                 {{if or (in (substr .Params.banner 0 7) "http://") (in (substr .Params.banner 0 8) "https://")}}
                 <img src="{{ .Params.banner }}" class="article-banner">
                 {{ else }}
-                <img src="{{ .Site.BaseURL }}{{ .Params.banner }}" class="article-banner">
+                <img src="{{ .Permalink }}{{ .Params.banner }}" class="article-banner">
                 {{end}}
             {{ end }}
             </a>
