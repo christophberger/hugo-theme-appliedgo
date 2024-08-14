@@ -1,8 +1,7 @@
 <article class="archive-article archive-type-post">
     <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
-            {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
-
+        {{ if .Params.banner }}
+            <div class="archive-article-thumbnail">
                 <a href="{{ .Permalink }}" class="thumbnail">
                     {{if or (in (substr .Params.banner 0 7) "http://") (in (substr .Params.banner 0 8) "https://")}}
                         <span style="background-image:url({{ .Params.banner }})" alt="{{ .Title }}" class="thumbnail-image"></span>
@@ -14,8 +13,8 @@
                 <a href="{{ .Permalink }}" class="thumbnail">
                     <span class="thumbnail-image thumbnail-none"></span>
                 </a>
-            {{ end }}
-        </div>
+            </div>
+        {{ end }}
         <header class="archive-article-header">
             <h2>
                 <a class="archive-article-title" href="{{ .Permalink }}">{{ .Title }}</a>
