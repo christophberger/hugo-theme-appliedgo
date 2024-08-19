@@ -51,10 +51,6 @@
 	<meta name="description"
 		content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
 
-	<meta name="keywords" content=""> 
-	<!-- Disabled meta keywords to avoid that keywords appear out of context and/or might be taken as keyword stuffing.
-		{{ .Site.Params.basicKeywords }}{{ if ne .Site.Params.basicKeywords "" }},{{ end }}{{ range $index, $element := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ $element }}{{ else }}{{ if eq .Site.Params.basicKeywords "" }}{{ .Site.Params.defaultKeywords }}{{ end }}{{ end }}"-->
-
 	<!-- Canonical URL -->
 	<link rel="canonical" href="{{ urls.JoinPath .Site.Params.canonicalURL .RelPermalink }}">
 
