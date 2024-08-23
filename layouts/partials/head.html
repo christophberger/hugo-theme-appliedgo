@@ -61,7 +61,7 @@
 
 	<!-- Social media metadata -->
 	{{ template "_internal/opengraph.html" . }}
-	{{ template "_internal/schema.html" . }}
+	{{ partial "site_schema.html" . }} <!-- replaces Hugo's failing {{ template "_internal/schema.html" . }} -->
 	{{ template "_internal/twitter_cards.html" . }}
 
 	<!-- Pirsch -->
