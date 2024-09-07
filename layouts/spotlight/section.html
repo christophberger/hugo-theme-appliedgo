@@ -7,7 +7,11 @@
             <section class="archives-wrap">
                 <div class="archive-category-wrap">
                     <span class="archive-category">
-                        <h1>{{ .Title }}</h1>
+                        <h1>{{ .Title }}
+                            <a href="{{ "spotlight/index.xml" | absURL }}" type="application/rss+xml" title="Subscribe to the Applied Go Spotlight RSS feed">
+                                <i class="far fa-rss-square"></i>
+                            </a>
+                        </h1>
                     </span>
                 </div>
                 <div>{{ .Description }}</div>
