@@ -12,7 +12,7 @@
 
                 </div>
                 <div class="archives">
-                    {{ $paginator := .Paginate .Data.Pages }}
+                    {{ $paginator := .Pagination.PagerSize .Data.Pages }}
                     {{ range $paginator.Pages }}
                         {{ .Render "summary" }}
                     {{ end }}
