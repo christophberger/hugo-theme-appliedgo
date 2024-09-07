@@ -1,36 +1,36 @@
 <main role="main" class="main article-list">
-{{ $paginator := .Pagination.PagerSize (where .Site.Pages "Type" "post") }}
+    {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
     {{ range $paginator.Pages }}
-	{{ if (not (eq .Title ""))}} <!-- Suppress non-post html files, like Hype animations. -->
-    <article class="article article-type-post">
-        <div class="article-inner">
-            {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
-            <a href="{{ .Permalink }}">
-                {{if or (in (substr .Params.banner 0 7) "http://") (in (substr .Params.banner 0 8) "https://")}}
-                <img src="{{ .Params.banner }}" class="article-banner">
-                {{ else }}
-                <img src="{{ .Site.BaseURL }}{{ .Params.banner }}" class="article-banner">
-                {{end}}
-            {{ end }}
-            </a>
+        {{ if (not (eq .Title ""))}}
+            <!-- Suppress non-post html files, like Hype animations. -->
+            <article class="article article-type-post">
+                <div class="article-inner">
+                    {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
+                        <a href="{{ .Permalink }}">
+                            {{if or (in (substr .Params.banner 0 7) "http://") (in (substr .Params.banner 0 8) "https://")}}
+                                <img src="{{ .Params.banner }}" class="article-banner">
+                                {{ else }}
+                                    <img src="{{ .Site.BaseURL }}{{ .Params.banner }}" class="article-banner">
+                                    {{end}}
+                                {{ end }}
+                            </a>
 
-            {{ partial "article_list_header" . }}
-            <div class="article-entry">
-                <p>
-                    {{ printf "%s" .Summary | markdownify }}
-                    <br>
-                </p>
-                <p class="article-read-more">
-                    <a href="{{ .Permalink }}">
-                        Read more
-                    </a>
-                </p>
-            </div>
-        </div>
-    </article>
-    {{ end }}
-    {{ end }}
+                            {{ partial "article_list_header" . }}
+                            <div class="article-entry">
+                                <p>
+                                    {{ printf "%s" .Summary | markdownify }}
+                                    <br></p>
+                                    <p class="article-read-more">
+                                        <a href="{{ .Permalink }}">
+                                            Read more
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    {{ end }}
+                {{ end }}
 
-    {{ partial "pagination" . }}
-</main>
-<!-- // main section -->
+                {{ partial "pagination" . }}
+            </main>
+            <!-- // main section -->

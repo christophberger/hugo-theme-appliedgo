@@ -1,5 +1,5 @@
 <main role="main" class="main article-list">
-    {{ $paginator := .Pagination.PagerSize (where .Site.Pages "Type" "post") }}
+    {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
     {{ range $paginator.Pages }}
         {{ if (not (eq .Title ""))}}
             <!-- Suppress non-post html files, like Hype animations. -->
