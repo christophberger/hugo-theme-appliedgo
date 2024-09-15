@@ -21,7 +21,7 @@
             </h2>
             <div class="archive-article-date">
                 <i class="fad fa-calendar"></i>
-                <time datetime="{{ .Date }}">{{ .Date.Format .Site.Params.dateFormat }}</time>
+                <time datetime="{{ .Params.Publishdate }}">{{ .Params.Publishdate.Format .Site.Params.dateFormat }}</time>
             </div>
             <div class="archive-article-description">
                 {{ .Description }}
