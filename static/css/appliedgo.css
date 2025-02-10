@@ -250,6 +250,7 @@ body {
 
 #site-header,
 .site-nav-item a {
+    text-decoration: none;
     color: var(--site-header-color);
     background-color: var(--site-header-bg-color);
 }
@@ -260,12 +261,14 @@ body {
 }
 
 #site-title h1 a {
+    text-decoration: none;
     color: var(--site-title-color);
     text-shadow: 0.05em 0.05em 0.1em var(--site-title-shadow-color);
     /*#a07050;*/
 }
 
 .site-nav-item a {
+    text-decoration: none;
     color: var(--site-nav-item-color);
 }
 
@@ -277,16 +280,19 @@ body {
 
 
 .subscribe-item a {
+    text-decoration: none;
     color: var(--subscribe-item-color);
 }
 
 #site-footer,
 #site-footer a {
+    text-decoration: none;
     background-color: var(--site-footer-bg-color);
     color: var(--site-footer-color);
 }
 
 .article-read-more a {
+    text-decoration: none;
     background-color: var(--article-read-more-bg-color);
     color: var(--article-read-more-color);
 }
@@ -300,38 +306,26 @@ body {
 /*Links */
 
 
-/* Based on "Spring Bounce Hover Effect" in https://uicookies.com/link-style-css/ (Codepen: https://codepen.io/markmead/pen/drORWG) */
-
 a {
     position: relative;
     overflow: hidden;
-    text-decoration: none;
     color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 
-a::after {
-    content: "";
-    background: var(--link-bg-color);
-    position: absolute;
-    left: 0.5em;
-    bottom: -0.1em;
-    width: calc(100% - 0.35em);
-    height: calc(100% - 0.35em);
-    z-index: -1;
-    transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+.article-header a,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+nav a,
+.article-categories-link {
+    text-decoration: none;
 }
 
-a:hover:after {
-    left: 0;
-    bottom: -0.05em;
-    width: 100%;
-    height: 100%;
-}
-
-.announcement a::after {
-    z-index: 0;
-    /* else it collides with the background color */
-}
 
 /* Footers */
 
@@ -867,6 +861,7 @@ blockquote p:last-child:not(:first-child) {
 /* List */
 
 .article-read-more a {
+    text-decoration: none;
     display: inline-block;
     line-height: 1em;
     padding: .3em .8em;
