@@ -801,28 +801,66 @@ blockquote {
     font-style: italic;
     background: var(--blockquote-bg-color);
     padding: 0.5em;
+    position: relative;
 }
 
 blockquote p {
-    display: inline;
+    display: block;
 }
 
-blockquote:after {
-    content: '\201D';
-    color: var(--blockquote-quotes-color);
-    font-size: 3em;
-    line-height: 0.1em;
-    margin-right: 0.1em;
-    vertical-align: -0.4em;
-}
-
-blockquote:before {
+/* Opening quote only before first paragraph */
+blockquote p:first-child:before {
     content: '\201C';
     color: var(--blockquote-quotes-color);
     font-size: 3em;
     line-height: 0.1em;
     margin-right: 0.1em;
     vertical-align: -0.4em;
+    left: 0;
+}
+
+/* Closing quote after second-last paragraph */
+blockquote p:nth-last-child(2):after {
+    content: '\201D';
+    color: var(--blockquote-quotes-color);
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.1em;
+    vertical-align: -0.4em;
+    right: 0;
+}
+
+/* Last paragraph styling (author) */
+blockquote p:last-child:not(p:first-child) {
+    text-align: right;
+    font-style: normal;
+}
+
+/* Special case: if there's only one paragraph */
+blockquote p:only-child:before {
+    content: '\201C';
+    color: var(--blockquote-quotes-color);
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.1em;
+    vertical-align: -0.4em;
+    left: 0;
+}
+
+blockquote p:only-child:after {
+    content: '\201D';
+    color: var(--blockquote-quotes-color);
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.1em;
+    vertical-align: -0.4em;
+    right: 0;
+}
+
+
+/* make the author font smaller */
+blockquote p:last-child:not(:first-child) {
+    font-size: smaller;
 }
 
 
