@@ -11,6 +11,16 @@
     </h1>
     </a>
     <div class="article-meta">
+        <div class="article-author">
+        {{ if isset .Params "author" }}
+            {{ if (ne (.Params.author) (.Site.Params.author.name))}}
+                {{ if (gt (len .Params.author) 0) }}
+                    <strong><em>By {{ .Params.author }}</em></strong>
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        </div>
+
         <div class="article-date">
             <i class="fad fa-calendar-alt"></i>
             <time datetime="{{ .Date }}" >{{ .Date.Format .Site.Params.dateFormat }}</time>

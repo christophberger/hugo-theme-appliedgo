@@ -758,7 +758,7 @@ print {
     margin-right: auto;
 }
 
-.article-title {
+.article-inner {
     padding-top: 1em;
 }
 
@@ -771,6 +771,11 @@ print {
 
 .article-date {
     display: inline;
+}
+
+.article-author {
+    font-size: 1.2em;
+    margin-bottom: 1em;
 }
 
 .post .summary {

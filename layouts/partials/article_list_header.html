@@ -8,14 +8,24 @@
         <div class="article-date">
             <time datetime="{{ .Date }}" >{{ .Date.Format ( or .Site.Params.dateFormat "Jan 02, 2006" ) }}</time>
         </div>
-		&nbsp;&middot;&nbsp;
-		{{ if isset .Params "categories" }}
-			{{ if (gt (len .Params.categories) 0) }}
-					<a class="article-categories-link" href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}">{{ index .Params.categories 0 }}</a>
-			{{ end }}
-			&nbsp;&middot;&nbsp;
-		{{ end }}
-		{{ .ReadingTime }} minute read
+        {{ if isset .Params "author" }}
+            {{ if (ne (.Params.author) (.Site.Params.author.name))}}
+                {{ if (gt (len .Params.author) 0) }}
+                    &nbsp;&middot;&nbsp;
+                    By {{ .Params.author }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+        {{ if isset .Params "categories" }}
+            {{ if (gt (len .Params.categories) 0) }}
+                &nbsp;&middot;&nbsp;
+                <a class="article-categories-link" href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}">{{ index .Params.categories 0 }}</a>
+            {{ end }}
+        {{ end }}
+
+        &nbsp;&middot;&nbsp;
+        {{ .ReadingTime }} minute read
 
     </div>
 </header>
