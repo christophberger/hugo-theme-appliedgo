@@ -1,2 +1,27 @@
-<a href="{{ .Destination | safeURL }}" {{ with .Title}} title="{{ . }}" {{ end }}{{ if strings.HasPrefix
-	.Destination "http" }} target="_blank" {{ end }}>{{ .Text }}</a>
+{{- $parsedTitle := dict -}}
+{{- with .Title -}}
+  {{- $parsedTitle = partial "functions/parse-title-attribute.html" . -}}
+{{- end -}}
+
+{{/* Check if the link is external and update the rel attribute accordingly */}}
+{{- $external := strings.HasPrefix .Destination "http" -}}
+{{- if $external -}}
+  {{- $rel := "noopener" -}}
+  {{- if $parsedTitle.attributes.rel -}}
+    {{- $rel = printf "%s,noopener" $parsedTitle.attributes.rel -}}
+  {{- end -}}
+  {{/* Create a new attributes dictionary with the updated rel value */}}
+  {{- $attributes := merge $parsedTitle.attributes (dict "rel" $rel) -}}
+  {{/* Reassign the updated attributes to parsedTitle */}}
+  {{- $parsedTitle = merge $parsedTitle (dict "attributes" $attributes) -}}
+{{- end -}}
+
+<a href="{{ .Destination | safeURL }}"
+  {{- with $parsedTitle.title }} title="{{ . }}"{{- end -}}
+  {{- with $parsedTitle.attributes -}}
+    {{- range $k, $v := . -}}
+      {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+    {{- end -}}
+  {{- end -}}
+  {{ if $external }} target="_blank" {{ end }}
+  >{{ .Text | safeHTML }}</a>
