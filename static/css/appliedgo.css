@@ -222,6 +222,7 @@ pre {
     --blockquote-bg-color: #f0f0f0;
     --blockquote-quotes-color: #aaa;
     --plain-link-color: #007bff;
+    --toc-color: #999;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -239,6 +240,7 @@ pre {
         --nohype-background-color: white;
         --blockquote-bg-color: #404040;
         --plain-link-color: #99BFFB;
+        --toc-color: #e5e8e9;
     }
 }
 
@@ -373,6 +375,11 @@ nav a,
     padding: .2em .2em .2em .2em;
 }
 
+/* Misc elements */
+
+.tocdetails {
+    color: var(--toc-color);
+}
 
 /*
  * Layout
