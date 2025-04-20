@@ -1,0 +1,29 @@
+<footer class="article-footer">
+
+    <!-- Mailing List -->
+
+    <section id="joinMailingList">
+
+        <div class="joinMailingListText">
+            {{ partial "subscribe_form" . }}
+        </div>
+
+    </section>
+
+    <a data-url="{{ .Permalink }}" data-id="{{ .File.UniqueID }}" class="article-share-link">
+        Share
+    </a>
+
+    <!-- Share Buttons -->
+
+    <div class="agshare_bottom">
+        <div class="agshare_text">Like this article? Tell your friends!</div>
+        {{ partial "share_buttons.html" . }}
+	</div>
+
+
+	<!-- Codapi -->
+
+	<script src="https://unpkg.com/@antonz/codapi@0.19.3/dist/snippet.js"></script> 
+
+</footer>
