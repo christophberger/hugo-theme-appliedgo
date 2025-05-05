@@ -1,0 +1,39 @@
+{{ partial "head" . }}
+
+<div id="container">
+    {{ partial "header" . }}
+    <div class="outer">
+        <main role="main" class="article-list">
+            <section class="archives-wrap">
+                <div class="archive-category-wrap">
+                    <span class="archive-category">
+                        <h1>{{ .Title }}</h1>
+                    </span>
+                </div>
+                <div class="archives">
+                    {{ $pages := where site.RegularPages.ByPublishDate.Reverse "Type" "spotlight" }}
+                    {{ $years := $pages.GroupByPublishDate "2006" }}
+                    {{ range $years }}
+                    <h2 class="archive-year">{{ .Key }}</h2>
+                    <ul class="archive-list">
+                        {{ range .Pages }}
+                        <li class="archive-item">
+                            <div class="archive-item-date">{{ .PublishDate.Format "2006-01-02" }}</div>
+                            <div class="archive-item-title">
+                                <a href="{{ .Permalink }}" class="archive-item-title">{{ .Title }}</a>
+                            </div>
+                        </li>
+                        {{ end }}
+                    </ul>
+                    {{ end }}
+                </div>
+                <div class="back-link">
+                    <a href="{{ "spotlight" | relURL }}">Back to Latest Spotlights</a>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+{{ partial "footer" . }}
+{{ partial "foot" . }}

@@ -477,8 +477,8 @@ print {
         margin-bottom: 1em;
     }
 
-    .archives {
-        margin-left: 0.5em;
+    .archive-list {
+        padding-left: 0;
     }
 
     .archive-article {
@@ -507,6 +507,25 @@ print {
         font-style: italic;
         margin-top: 0.5em;
         margin-left: 2em;
+    }
+
+    .archive-item {
+        display:flex;
+    }
+
+    .archive-item-date {
+        margin-right: 1em;
+    }
+
+    .archive-item-title {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .all-spotlights-link {
+        margin-top: 2em;
+        text-align: center;
+        font-size: 1.2em;
     }
 
     .page {
@@ -633,9 +652,6 @@ print {
         padding: 0.2em;
     }
 
-    .archives {
-        margin-left: 1em;
-    }
 
     #site-footer {
         display: table;

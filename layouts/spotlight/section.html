@@ -16,13 +16,15 @@
                 </div>
                 <div>{{ .Description }}</div>
                 <div class="archives">
-                    {{ $paginator := .Paginate .Data.Pages.ByPublishDate.Reverse }}
-                    {{ range $paginator.Pages }}
+                    {{ $pages := .RegularPages.ByPublishDate.Reverse }}
+                    {{ range first 5 $pages }}
                         {{ .Render "summary" }}
                     {{ end }}
                 </div>
+                <div class="all-spotlights-link">
+                    <a href="{{ "spotlight/all" | relURL }}">All Spotlights</a>
+                </div>
             </section>
-            {{ partial "pagination" . }}
         </main>
     </div>
 </div>
