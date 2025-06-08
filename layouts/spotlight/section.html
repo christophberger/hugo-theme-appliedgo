@@ -14,7 +14,7 @@
                         </h1>
                     </span>
                 </div>
-                <div>{{ .Description }}</div>
+                <div>{{ .Description | markdownify }}</div>
                 <div class="archives">
                     {{ $pages := .RegularPages.ByPublishDate.Reverse }}
                     {{ range first 5 $pages }}
