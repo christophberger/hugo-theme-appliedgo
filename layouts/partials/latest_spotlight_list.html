@@ -1,0 +1,38 @@
+<div class="main article-list latest-spotlight-list">
+	{{- $spotlights := (where .Site.RegularPages "Section" "spotlight").ByDate.Reverse | first 3 }}
+	{{- with $spotlights }}
+	<section class="archives-wrap recent-spotlights">
+		<div class="archive-category-wrap">
+			<span class="archive-category">
+				<h2>
+					<a href="{{ " spotlight/" | relURL }}">Latest Spotlights</a>
+				</h2>
+			</span>
+		</div>
+		<div class="archives">
+			{{- range . }}
+			{{- $page := . }}
+			<article class="archive-article archive-type-post">
+				<div class="archive-article-inner">
+					<div class="archive-article-thumbnail">
+						<a href="{{ .Permalink }}" class="thumbnail">
+							{{- with .Params.banner }}
+							<span style="background-image:url({{ $page.Permalink }}{{ . }})" alt="{{ $page.Title }}"
+								class="thumbnail-image"></span>
+							{{- else }}
+							<span class="thumbnail-image thumbnail-none"></span>
+							{{- end }}
+						</a>
+					</div>
+					<header class="archive-article-header">
+						<h3><a class="archive-article-title" href="{{ .Permalink }}">{{ .Title }}</a></h3>
+					</header>
+				</div>
+			</article>
+			{{- end }}
+		</div>
+		<div class="more-spotlights-link"><a href="{{ " spotlight/" | relURL }}">More Spotlights</a></div>
+	</section>
+	{{- end }}
+
+</div>

@@ -1,4 +1,9 @@
 <main role="main" class="main article-list">
+    <div class="archive-category-wrap">
+        <span class="archive-category">
+            <h2>Blog Posts</h2>
+        </span>
+    </div>
     {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
     {{ range $paginator.Pages }}
         {{ if (not (eq .Title ""))}}

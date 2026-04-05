@@ -223,6 +223,7 @@ pre {
     --blockquote-quotes-color: #aaa;
     --plain-link-color: #007bff;
     --toc-color: #999;
+    --spotlight-list-bg-color: #f0f0f0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -241,6 +242,7 @@ pre {
         --blockquote-bg-color: #404040;
         --plain-link-color: #99BFFB;
         --toc-color: #ccc;
+        --spotlight-list-bg-color: #484848;
     }
 }
 
@@ -790,6 +792,10 @@ print {
     margin-right: auto;
     min-width: 20em;
     max-width: 30em;
+}
+
+.latest-spotlight-list {
+    background-color: var(--spotlight-list-bg-color);
 }
 
 .article-date {
