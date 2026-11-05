@@ -4,6 +4,9 @@
         {{ .Title }}
     </h2>
     </a>
+    {{- range .GetTerms "series" }}
+    <div class="article-series">(<a class="article-series-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>)</div>
+    {{- end }}
     <div class="article-meta">
         <div class="article-date">
             <time datetime="{{ .Date }}" >{{ .Date.Format ( or .Site.Params.dateFormat "Jan 02, 2006" ) }}</time>
