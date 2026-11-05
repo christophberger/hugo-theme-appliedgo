@@ -31,6 +31,13 @@
             {{ .ReadingTime }} minute read
         </div>
 
+        {{ range .GetTerms "series" }}
+            <div class="article-series">
+                <i class="fad fa-layer-group"></i>
+                Series: <a class="article-series-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </div>
+        {{ end }}
+
 		{{ if isset .Params "categories" }}
             {{ $categoriesLen := len .Params.categories }}
             {{ if gt $categoriesLen 0 }}
