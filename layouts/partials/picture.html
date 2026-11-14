@@ -1,5 +1,7 @@
 <!-- https://github.com/stereobooster/hugo-ideal-image/blob/main/layouts/partials/picture.html -->
 
+{{ warnf "Executing partial: picture.html" }}
+
 {{- $img := .img -}}
 {{- $alt := .alt -}}
 {{- $class := .class -}}
@@ -101,3 +103,4 @@
     </picture>
   {{ end }}
 {{ end }}
+{{ warnf "Partial executed: picture.html" }}

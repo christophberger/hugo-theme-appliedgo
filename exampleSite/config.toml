@@ -1,5 +1,5 @@
 baseurl = "http://appliedgo.net/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Applied Go"
 author = "Christoph Berger"
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."

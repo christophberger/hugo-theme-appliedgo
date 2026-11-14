@@ -1,0 +1,70 @@
+{{- $url := urls.Parse .Destination -}}
+
+{{/* https://github.com/gohugoio/hugo/pull/10666/files */}}
+{{- $params := $url.Query -}}
+{{- $lazyParam := $params.Get "lazy" -}}
+{{- $lazy := false -}}
+{{- if ne $lazyParam "false" -}}
+    {{- $lazy = $lazyParam | default .Page.Site.Params.pictureLazy -}}
+{{- end -}}
+
+{{- $webpParam := $params.Get "webp" -}}
+{{- $webp := false -}}
+{{- if ne $webpParam "false" -}}
+    {{- $webp = $webpParam | default .Page.Site.Params.pictureWebp -}}
+{{- end -}}
+
+{{- $lqipParam := $params.Get "lqip" -}}
+{{- $lqip := false -}}
+{{- if ne $lqipParam "false" -}}
+    {{- $lqip = $lqipParam | default .Page.Site.Params.pictureLqip -}}
+{{- end -}}
+
+{{- $file := $url.Path -}}
+{{ warnf "$file: %s" $file }}
+{{ warnf "Destination: %s" .Destination }}
+{{ warnf "Page File Dir: %s" .Page.File.Dir }}
+
+{{/* Check if the file path is absolute (starts with /) */}}
+{{- $isAbsolutePath := hasPrefix $file "/" -}}
+{{- $resourcePath := $file -}}
+
+{{/* If it's an absolute path, try to make it relative for resource lookup */}}
+{{- if $isAbsolutePath -}}
+    {{- $resourcePath = strings.TrimPrefix "/" $file -}}
+    {{ warnf "Absolute path detected, converted to: %s" $resourcePath }}
+{{- else -}}
+    {{/* For relative paths, join with page directory */}}
+    {{- $resourcePath = path.Join .Page.File.Dir $file -}}
+    {{ warnf "Relative path: %s" $resourcePath }}
+{{- end -}}
+
+{{/* First try to get the resource as-is */}}
+{{- $img := .Page.Resources.GetMatch $file -}}
+{{ warnf "Initial resource lookup result: %s" $img }}
+
+{{/* If not found and it's an absolute path, try with the modified path */}}
+{{- if and (not $img) $isAbsolutePath -}}
+    {{ warnf "Attempting to resolve with modified path: %s" $resourcePath }}
+    {{- $img = resources.Get $resourcePath -}}
+{{- end -}}
+
+{{/* Last fallback for page-relative resources */}}
+{{- if and (not $img) .Page.File -}}
+    {{ warnf "Attempting page-relative path: %s" (path.Join .Page.File.Dir $file) }}
+    {{- $img = resources.Get (path.Join .Page.File.Dir $file) -}}
+{{- end -}}
+
+{{ warnf "Final resolved resource: %s" $img }}
+{{- with $img -}}
+    {{ partial "picture.html" (dict "img" . "alt" $.Text "lazy" $lazy "webp" $webp "lqip" $lqip) }}
+{{- else -}}
+    {{ if $lazy }}
+        {{/* do not use lazy without dimensions */}}
+        {{ warnf "Can't use lazy images for %s" .Destination }}
+    {{ end }}
+    <picture>
+        <img src="{{ .Destination | safeURL }}" alt="{{ $.Text }}" />
+    </picture>
+{{- end -}}
+{{ warnf "Layout executed: render-image.html\n" }}

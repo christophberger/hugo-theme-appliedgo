@@ -22,21 +22,32 @@
     {{- $lqip = $lqipParam | default .Page.Site.Params.pictureLqip -}}
 {{- end -}}
 
-{{- $file := $url.Path}}
-{{- $img := .Page.Resources.GetMatch $file -}}
+{{- $file := $url.Path -}}
+{{ warnf "$file: %s" $file }}
+{{ warnf "Destination: %s" .Destination }}
+{{ warnf "Page File Dir: %s" .Page.File.Dir }}
+{{ warnf "Media Path: %s" (path.Join .Page.File.Dir $file) }}
+
+{{- $img := .Page.Resources.Get $file -}}
+{{ warnf "%d: Resolved Resource: %s" math.Counter $img }}
+
 {{- if and (not $img) .Page.File -}}
-    {{ $path := path.Join .Page.File.Dir $file }}
+    {{- $path := path.Join .Page.File.Dir $file -}}
+    {{ warnf "Attempting to resolve: %s" $path }}
     {{- $img = resources.Get $path -}}
 {{- end -}}
 
+{{ warnf "Calling picture.html with %s" $img }}
 {{- with $img -}}
-{{ partial "picture.html" (dict "img" . "alt" $.Text "lazy" $lazy "webp" $webp "lqip" $lqip) }}
+{{ warnf "Calling picture.html with %s" $img }}
+    {{ partial "picture.html" (dict "img" . "alt" $.Text "lazy" $lazy "webp" $webp "lqip" $lqip) }}
 {{- else -}}
-{{ if $lazy }}
-    {{/* do not use lazy without dimensions */}}
-    {{ warnf "Can't use lazy images for %s" .Destination }}
-{{ end }}
-<picture>
-    <img src="{{ .Destination | safeURL }}" alt="{{ $.Text }}" />
-</picture>
+    {{ if $lazy }}
+        {{/* do not use lazy without dimensions */}}
+        {{ warnf "Can't use lazy images for %s" .Destination }}
+    {{ end }}
+    <picture>
+        <img src="{{ .Destination | safeURL }}" alt="{{ $.Text }}" />
+    </picture>
 {{- end -}}
+{{ warnf "%d: Layout executed: render-image.html\n" math.Counter }}
